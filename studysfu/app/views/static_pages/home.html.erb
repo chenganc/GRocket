@@ -1,10 +1,12 @@
 <style>
 body {
-    background-image: image-url("rocket-2-01.png");
-    background-repeat: repeat-xy;
+    background-image:url(<%=asset_path "rocket-5-01.png"%>);
+    background-size: 50px 50px;
+    background-repeat: xy;
 }
 </style>
+
 <div class="center jumbotron">
-  <h1>Welcome to StudySfu</h1>
+  <h1>Welcome to Rocket</h1>
   <%= link_to "Sign up", '../users/new', class: "btn btn-lg btn-primary" %>
 </div>
