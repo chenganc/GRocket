@@ -13,15 +13,28 @@
 
 ActiveRecord::Schema.define(version: 20151021183755) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "rectangles", force: :cascade do |t|
+    t.string   "Name"
+    t.integer  "Width"
+    t.integer  "Height"
+    t.string   "Color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string   "Email"
     t.string   "FirstName"
     t.string   "LastName"
-    t.string   "Email"
+    t.string   "Password"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
   end
 
-  add_index "users", ["Email"], name: "index_users_on_Email", unique: true
+  add_index "users", ["Email"], name: "index_users_on_Email", unique: true, using: :btree
 
 end
