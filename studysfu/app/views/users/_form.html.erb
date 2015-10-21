@@ -18,20 +18,21 @@
 
 
       <%= f.label :Email %><br>
-      <%= f.email_field :Email %>
+      <%= f.email_field :Email, class: 'form-control' %>
 
       <br>
       <%= f.label :FirstName %><br>
-      <%= f.text_field :FirstName %>
+
+      <%= f.text_field :FirstName, class: 'form-control' %>
 <br>
       <%= f.label :LastName %><br>
-      <%= f.text_field :LastName %>
+      <%= f.text_field :LastName, class: 'form-control' %>
 <br>
       <%= f.label :Password %><br>
-      <%= f.password_field :password %>
+      <%= f.password_field :passwor, class: 'form-control' %>
 <br>
       <%= f.label :password_confirmation, "Confirmation" %><br>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 <br><br>
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
