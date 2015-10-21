@@ -11,31 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021214002) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "rectangles", force: :cascade do |t|
-    t.string   "Name"
-    t.integer  "Width"
-    t.integer  "Height"
-    t.string   "Color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20151021221627) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "Email"
     t.string   "FirstName"
     t.string   "LastName"
-    t.string   "Password"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "Email"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated"
+    t.datetime "activated_at"
   end
 
-  add_index "users", ["Email"], name: "index_users_on_Email", unique: true, using: :btree
+  add_index "users", ["Email"], name: "index_users_on_Email", unique: true
 
 end

@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
+
+  attr_accessor :remember_token, :activation_token, :reset_token
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  before_action :logged_in_user, only: [:index, :edit, :update]
+
+  before_action :correct_user,   only: [:edit, :update]
+
 
   # GET /users
   # GET /users.json
@@ -19,6 +27,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   # POST /users
@@ -28,8 +37,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        @user.send_activation_email
+        flash[:info] = "Please check your email to activate your account."
+        redirect_to root_url
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -62,8 +72,9 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -73,4 +84,18 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:Email, :FirstName, :LastName, :password, :password_confirmation)
     end
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
+    end
+
 end
