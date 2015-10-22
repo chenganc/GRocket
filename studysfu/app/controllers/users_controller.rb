@@ -34,8 +34,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
+    #respond_to do |format|
       if @user.save
         #@user.send_activation_email
         flash[:info] = "Please check your email to activate your account."
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
 
@@ -82,7 +81,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:Email, :FirstName, :LastName, :password, :password_confirmation)
+      params.require(:user).permit(:email, :firstName, :lastName, :password, :password_confirmation)
     end
 
     def logged_in_user

@@ -8,21 +8,21 @@ body {
 <div class="center jumbotron">
   <p id="notice"><%= notice %></p>
 
-  <h1> Welcome <%= @user.FirstName%> <%=@user.LastName %> </h1>
+  <h1> Welcome <%= @user.firstName%> <%=@user.lastName %> </h1>
 
   <p>
     <strong>Email:</strong>
-    <%= @user.Email %>
+    <%= @user.email %>
   </p>
 
   <p>
     <strong>Firstname:</strong>
-    <%= @user.FirstName %>
+    <%= @user.firstName %>
   </p>
 
   <p>
     <strong>Lastname:</strong>
-    <%= @user.LastName %>
+    <%= @user.lastName %>
   </p>
 
   <%= link_to 'Change User Information', edit_user_path(@user) %> |
