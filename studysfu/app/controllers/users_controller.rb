@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        @user.send_activation_email
+        #@user.send_activation_email
         flash[:info] = "Please check your email to activate your account."
         redirect_to root_url
       else
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
 
     # Use callbacks to share common setup or constraints between actions.

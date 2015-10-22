@@ -1,21 +1,29 @@
-<p id="notice"><%= notice %></p>
+<style>
+body {
+    background-image:url(<%=asset_path "rocket-5-01.png"%>);
+    background-size: 50px 50px;
+    background-repeat: xy;
+}
+</style>
+<div class="center jumbotron">
+  <p id="notice"><%= notice %></p>
 
-<h1> Welcome <%= @user.FirstName%> <%=@user.LastName %> </h1>
+  <h1> Welcome <%= @user.FirstName%> <%=@user.LastName %> </h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.Email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.Email %>
+  </p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @user.FirstName %>
-</p>
+  <p>
+    <strong>Firstname:</strong>
+    <%= @user.FirstName %>
+  </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.LastName %>
-</p>
+  <p>
+    <strong>Lastname:</strong>
+    <%= @user.LastName %>
+  </p>
 
-<%= link_to 'Change User Information', edit_user_path(@user) %> |
-
+  <%= link_to 'Change User Information', edit_user_path(@user) %> |
+</div>
