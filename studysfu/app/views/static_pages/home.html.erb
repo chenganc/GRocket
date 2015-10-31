@@ -1,15 +1,16 @@
 <style>
 body {
-    background-image:url(<%=asset_path "rocket-5-01.png"%>);
+    background-image:url(<%=asset_path "GRocket-Icon-grey-01.png"%>);
     background-size: 50px 50px;
     background-repeat: xy;
 }
 </style>
 <div class="center jumbotron">
+  <!--<p>Student Interative Platform</p>-->
   <h1>Ready to Launch!</h1>
-  <img src= <%=asset_path "rocket-6-01.png"%> width="25%" height="25%" >
+  <img src= <%=asset_path "loading.gif"%> width="25%" height="25%" >
   <br></br>
-  
+
   <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "Sign up", '../users/new', class: "btn btn-lg btn-primary" %>
 </div>
