@@ -1,8 +1,17 @@
 <% provide(:title, 'Sign up') %>
 
+<style>
+  body {
+    background-image:url(<%=asset_path "GRocket-Icon-grey-01.png"%>);
+    background-size: 50px 50px;
+    background-repeat: xy;
+  }
+</style>
+
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <!--<div class="col-md-6 col-md-offset-3">-->
+  <div class="floatcenter ">
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -31,7 +40,7 @@
       <%= f.label :password %><br>
       <%= f.password_field :password, class: 'form-control' %>
 <br>
-      <%= f.label :password_confirmation, "Confirmation" %><br>
+      <%= f.label :password_confirmation, "Please repeat your password" %><br>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 <br><br>
       <%= f.submit "Create my account", class: "btn btn-primary" %>

@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   get 'coursepage'   => 'static_pages#coursepage'
   get 'posting'      => 'static_pages#posting'
   get 'login'        => 'sessions#new'
+  get 'signup'       => 'sessions#new'
   post 'login'       => 'sessions#create'
   delete 'logout'    => 'sessions#destroy'
-
+  resources :account_activations, only: [:edit]
   resources :users
 
 

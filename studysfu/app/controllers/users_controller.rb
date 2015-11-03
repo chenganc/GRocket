@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   before_action :correct_user,   only: [:edit, :update]
 
+  #before_create :create_activation_digest
 
   # GET /users
   # GET /users.json
@@ -34,20 +35,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    #respond_to do |format|
-      if @user.save
-        #@user.send_activation_email
-        flash[:info] = "Please check your email to activate your account."
-        redirect_to root_url
-      else
-        render :new
-        #format.html { render :new }
-        #format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    #end
+    if @user.save
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+    else
+      render 'new'
+    end
   end
-
-
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -97,5 +92,11 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless @user == current_user
     end
+
+    #def create_activation_digest
+      # Create the token and digest.
+    #  self.activation_token  = User.new_token
+    #  self.activation_digest = User.digest(activation_token)
+    #end
 
 end

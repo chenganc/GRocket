@@ -6,24 +6,5 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get personalpage" do
-    get :personalpage
-    assert_response :success
-  end
-
-  test "should get coursepage" do
-    get :coursepage
-    assert_response :success
-  end
-
-  test "should get posting" do
-    get :posting
-    assert_response :success
-  end
-
-  test "should get login" do
-    get :login
-    assert_response :success
-  end
 
 end
