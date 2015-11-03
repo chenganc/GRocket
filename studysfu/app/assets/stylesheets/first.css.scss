@@ -109,8 +109,26 @@ footer {
 }
 
 body {
-
   background-image:url("GRocket-Icon-grey-01.png");
   background-size: 50px 50px;
   background-repeat: xy;
+}
+
+.info {
+  font-size: 200%;
+  text-align:center;
+  color:green;
+  /*  padding: 7px;
+  margin-bottom: 20px;
+  background-color: green; */
+}
+
+
+.error {
+  font-size: 200%;
+  text-align:center;
+  color:red;
+  /*  padding: 7px;
+  margin-bottom: 20px;
+  background-color: red; */
 }

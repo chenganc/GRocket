@@ -80,4 +80,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   #host = 'example.com'
   config.action_mailer.default_url_options = { :host => 'g-rocket.herokuapp.com' }
+  config.cache_classes = true
+  # Adding background support for heroku
+  config.serve_static_assets = true
+  config.assets.compile = true
+  config.assets.digest = true
 end
