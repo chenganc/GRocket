@@ -1,0 +1,2 @@
+      invoke  active_record
+   identical    db/migrate/20151103210118_add_reset_to_users.rb
