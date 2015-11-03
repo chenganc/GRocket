@@ -1,10 +1,12 @@
 default: &default
-  adapter: postgresql
+  #adapter: postgresql
   encoding: unicode
   pool: 5
-  #adapter: sqlite3
+  adapter: sqlite3
   #pool: 5
   #timeout: 5000
+  
+  #When testing locally, use adapter sqlite3, otherwise, postgresql.
 
 development:
   <<: *default
