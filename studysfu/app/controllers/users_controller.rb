@@ -37,10 +37,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
+      #format.html { redirect_to @user, notice: 'Please check your email to activate your account.' }
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
       render 'new'
+      format.html { render :new }
     end
   end
 
@@ -83,7 +85,8 @@ class UsersController < ApplicationController
     def logged_in_user
       unless logged_in?
         store_location
-        flash[:danger] = "Please log in."
+        #format.html { redirect_to login_url, notice: 'Please log in.' }
+        flash[:error] = "Please log in."
         redirect_to login_url
       end
     end

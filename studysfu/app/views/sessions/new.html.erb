@@ -1,4 +1,6 @@
 <% provide(:title, "Log in") %>
+<%= flash[:notice]%>
+
 <!--<style>
 body {
     background-image:url(<%=asset_path "GRocket-Icon-grey-01.png"%>);
@@ -7,8 +9,10 @@ body {
 }
 </style>-->
 <div class="center jumbotron">
+  <div style="color:Red">
+    <div style="text-align:center"><%= flash[:error]%></div>
+  </div>
   <h1>Welcome back!</h1>
-
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(:session, url: login_path) do |f| %>
