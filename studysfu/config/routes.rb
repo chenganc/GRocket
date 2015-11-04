@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'posting'      => 'static_pages#posting'
   get 'login'        => 'sessions#new'
   get 'signup'       => 'sessions#new'
+  get 'about' => 'static_pages#about'
+  get 'contact'  => 'static_pages#contact'
   post 'login'       => 'sessions#create'
   delete 'logout'    => 'sessions#destroy'
   resources :users
