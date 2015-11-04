@@ -10,40 +10,41 @@
 
 
 <div class="row">
-  <!--<div class="col-md-6 col-md-offset-3">-->
-  <div class="floatcenter ">
-    <%= form_for(@user) do |f| %>
-      <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="center ">
+      <%= form_for(@user) do |f| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-          <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+
+        <%= f.label :email %><br>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <br>
+        <%= f.label :firstName %><br>
+
+        <%= f.text_field :firstName, class: 'form-control' %>
+  <br>
+        <%= f.label :lastName %><br>
+        <%= f.text_field :lastName, class: 'form-control' %>
+  <br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: 'form-control' %>
+  <br>
+        <%= f.label :password_confirmation, "Please repeat your password" %><br>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <br><br>
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
       <% end %>
-
-
-      <%= f.label :email %><br>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <br>
-      <%= f.label :firstName %><br>
-
-      <%= f.text_field :firstName, class: 'form-control' %>
-<br>
-      <%= f.label :lastName %><br>
-      <%= f.text_field :lastName, class: 'form-control' %>
-<br>
-      <%= f.label :password %><br>
-      <%= f.password_field :password, class: 'form-control' %>
-<br>
-      <%= f.label :password_confirmation, "Please repeat your password" %><br>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-<br><br>
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+      </div>
+    </div>  
 </div>

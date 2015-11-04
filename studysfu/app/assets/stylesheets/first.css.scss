@@ -54,6 +54,10 @@ p {
 }
 
 
+.link {
+    color: hotpink;
+}
+
 /* header */
 
 #logo{
@@ -106,6 +110,7 @@ footer {
   }
 .blur {
   -webkit-filter: blur(5px);
+  text-align:center;
 }
 
 body {
