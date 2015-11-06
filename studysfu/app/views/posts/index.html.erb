@@ -1,0 +1,30 @@
+<div class="center jumbotron">
+	<div class="bigbox">
+		<div class="box">
+			<% @posts.each do |post| %>
+					<ul>
+						<div class="up-down">
+							<%= link_to like_post_path(post), method: :put, class: 'up' do %>
+							<p><i class="fa fa-chevron-up"></i></p>
+							<% end %>
+							<%= link_to dislike_post_path(post), method: :put, class: 'down' do %>
+							<p><i class="fa fa-chevron-down"></i></p>
+							<% end %>
+						</div>
+
+						<div class="post-box">
+						  <h3><%= post.title %></h3>
+						  <li><%= auto_link(post.url) %></li>
+						  <li><%= post.user.firstName %></li>
+						  <li><%= post.get_upvotes.size %> points</li>
+						  <li class="bold"><%= post.user.firstName %></li>
+						  <li class="date"><%= time_ago_in_words(post.created_at) %> ago</li>
+						  <li class="author"></li>
+						</div>
+					  </ul>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>
