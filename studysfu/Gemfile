@@ -45,6 +45,8 @@ gem 'rails_autolink', '~> 1.1.6'
 # sending email#
 #gem 'postmark'
 gem 'postmark-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

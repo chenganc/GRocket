@@ -8,12 +8,14 @@ class UsersController < ApplicationController
 
   before_action :correct_user,   only: [:edit, :update]
 
+  before_action :admin_user,     only: :destroy
+
   #before_create :create_activation_digest
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   # GET /users/1
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      redirect_to root_path
     else
       render 'new'
     end
@@ -61,11 +63,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    User.find(params[:id]).destroy
+    flash[:info] = "User deleted"
+    redirect_to users_path
   end
 
   private
@@ -85,13 +85,13 @@ class UsersController < ApplicationController
         store_location
         #format.html { redirect_to login_url, notice: 'Please log in.' }
         flash[:error] = "Please log in."
-        redirect_to login_url
+        redirect_to login_path
       end
     end
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless @user == current_user
+      redirect_to(root_path) unless @user == current_user
     end
 
     #def create_activation_digest
@@ -99,5 +99,10 @@ class UsersController < ApplicationController
     #  self.activation_token  = User.new_token
     #  self.activation_digest = User.digest(activation_token)
     #end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_path) unless current_user && current_user.admin?
+    end
 
 end

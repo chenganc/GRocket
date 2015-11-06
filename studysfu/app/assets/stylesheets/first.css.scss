@@ -106,14 +106,17 @@ footer {
   }
 }
 
-.floatcenter {
-      margin: 10%;
-      overflow: hidden;
+/* Users index */
 
+.users {
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
   }
-.blur {
-  -webkit-filter: blur(5px);
-  text-align:center;
 }
 
 body {
