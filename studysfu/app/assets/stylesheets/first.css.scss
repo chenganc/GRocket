@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -54,10 +53,6 @@ p {
 }
 
 
-.link {
-    color: hotpink;
-}
-
 /* header */
 
 #logo{
@@ -70,53 +65,78 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
-    text-decoration: none;
   }
 }
 
 /* footer */
-
-footer {
-  font-size: 150%;
-  margin-top: 45px;
-  padding-top: 5px;
-  text-align:center;
-  border-top: 5px solid CornflowerBlue ;
-  background-color: #eaeaea;
-  padding: 20px;
-  color: $gray-light;
-  a {
-    font-size: 150%;
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
+.footer-demo{
+    background-attachment: fixed;
+    position: relative;
+    line-height: 20px;
 }
-
-/* Users index */
-
-.users {
-  background-color: white;
+.footer-demo nav > ul {
   list-style: none;
   margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+  padding: 0;
+  font-weight: normal;
+}
+.footer-demo nav > ul > li{
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 15px 3px;
+    line-height: 20px;
+    text-align: center;
+}
+.footer-demo nav > ul > li:first-child{
+    margin: 0;
+    padding: 0;
+}
+.footer-demo nav > ul a:not(.btn) {
+  color: #777777;
+  display: block;
+  margin-bottom: 3px;
+}
+.footer-demo nav > ul a:not(.btn):hover, .footer nav > ul a:not(.btn):focus {
+  color: #E3E3E3;
+}
+.footer-demo .copyright {
+  color: #777777;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin: 15px 3px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.section-dark {
+  background-color: #1a1817;
+  color: #FFFFFF; }
+
+.section-light-blue {
+  background-color: #7A9E9F;
+  color: #FFFFFF; }
+
+.section-dark-blue {
+  background-color: #506367;
+  color: #FFFFFF; }
+
+.section-gray {
+  background-color: #EEEEEE; }
+
+.section-white {
+  background-color: #FFFFFF; }
+
+.section-nude {
+  background-color: #FFFCF5; }
+
+
+.floatcenter {
+      margin: 10%;
+      overflow: hidden;
+
   }
+.blur {
+  -webkit-filter: blur(5px);
 }
 
 body {
@@ -142,4 +162,23 @@ body {
   /*  padding: 7px;
   margin-bottom: 20px;
   background-color: red; */
+}
+
+.users {
+  background-color: #eaeaea;
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+.box{
+  background-color: #eaeaea;
+}
+
+.form-box{
+  border-radius:3px;
+    padding-left:3px;
 }
