@@ -1,6 +1,6 @@
-
-	<div class="bigbox">
+<div class="bigbox">
 		<div class="box">
+			<br></br>
 			<div class="info">
 				<%= flash[:info]%>
 			</div>
@@ -13,6 +13,7 @@
 							<%= link_to like_post_path(post), method: :put, class: 'up' do %>
 							<p><i class="fa fa-chevron-up"></i></p>
 							<% end %>
+							<%= post.get_upvotes.size %>
 							<%= link_to dislike_post_path(post), method: :put, class: 'down' do %>
 							<p><i class="fa fa-chevron-down"></i></p>
 							<% end %>
@@ -21,12 +22,11 @@
 						<div class="post-box">
 						  <h3><%= post.title %></h3>
 						  <p><%= auto_link(post.url) %></p>
-						  <p>by <%= post.user.firstName %> <%= post.get_upvotes.size %> points</p>
-						  <p class="date"><%= time_ago_in_words(post.created_at) %> ago</p>
+						  <p>by <%= post.user.firstName %> <%= time_ago_in_words(post.created_at) %> ago</p>
 						</div>
 					  </ul>
 
 			<% end %>
-		<br></br>	
+		<br></br>
 		</div>
 	</div>

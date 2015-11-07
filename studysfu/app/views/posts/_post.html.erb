@@ -1,8 +1,10 @@
-<li id="post-" <%= post.id %> >
-  <span class="user"><%= link_to post.user.firstName %></span>
-  <span class="title"><%= post.title %></span>
-  <span class="url"><%= post.url %></span>
-    <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
-  </span>
-</li>
+<ul>
+    <aside class="col-md-4">
+    <section class="user_info">
+	  <%= link_to gravatar_for(post.user, size: 50), post.user %>
+	    <span class="title"><strong><%= post.title %> </strong></span>
+	    <span><%= post.url %></span>
+	    <span class="user">Posted by <%= link_to post.user.firstName %>, <%= time_ago_in_words(post.created_at) %> ago. </span>
+    </section>
+
+</ul>
