@@ -25,5 +25,17 @@ body {
     <%= @user.lastName %>
   </p>
 
+
+
+
   <%= link_to 'Change User Information', edit_user_path(@user) %> |
+</div>
+<div class = "jumbotron">
+    <% if @user.posts.any? %>
+      <h3>Posts (<%= @posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
 </div>
