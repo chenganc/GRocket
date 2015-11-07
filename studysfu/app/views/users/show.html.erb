@@ -1,3 +1,4 @@
+<% provide(:title, @user.firstName) %>
 <style>
 body {
     background-image:url(<%=asset_path "rocket-5-01.png"%>);
@@ -5,25 +6,28 @@ body {
     background-repeat: xy;
 }
 </style>
-<div class="center jumbotron">
-  <p id="notice"><%= notice %></p>
 
-  <h1> Welcome <%= @user.firstName%> <%=@user.lastName %> </h1>
+<div class="row">
+  <p id="info"><%= notice %></p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
+  <aside class="col-md-4">
+      <section class="user_info">
+      <h1>        <%= gravatar_for @user %> </h1> 
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+      <p>
+        <strong>Firstname:</strong>
+        <%= @user.firstName %>
+      </p>
 
-  <p>
-    <strong>Firstname:</strong>
-    <%= @user.firstName %>
-  </p>
+      <p>
+        <strong>Lastname:</strong>
+        <%= @user.lastName %>
+      </p>
 
-  <p>
-    <strong>Lastname:</strong>
-    <%= @user.lastName %>
-  </p>
-
-  <%= link_to 'Change User Information', edit_user_path(@user) %> |
+      <%= link_to 'Change User Information', edit_user_path(@user) %> |
+      </section>
+  </aside>
 </div>
