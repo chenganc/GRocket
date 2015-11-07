@@ -1,0 +1,43 @@
+<% provide(:title, @user.firstName) %>
+<style>
+body {
+    background-image:url(<%=asset_path "rocket-5-01.png"%>);
+    background-size: 50px 50px;
+    background-repeat: xy;
+}
+</style>
+
+<div class="row">
+  <p id="info"><%= notice %></p>
+
+  <aside class="col-md-4">
+      <section class="user_info">
+      <h1>        <%= gravatar_for @user %> </h1>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+      <p>
+        <strong>Firstname:</strong>
+        <%= @user.firstName %>
+      </p>
+
+      <p>
+        <strong>Lastname:</strong>
+        <%= @user.lastName %>
+      </p>
+
+
+      | <%= link_to 'Change User Information', edit_user_path(@user) %> |
+      </section>
+  </aside>
+</div>
+<div class = "jumbotron">
+    <% if @user.posts.any? %>
+      <h3>Posts (<%= @posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+</div>
