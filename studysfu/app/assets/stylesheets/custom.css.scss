@@ -2,11 +2,10 @@
 
 aside {
   section.user_info {
-    margin-top: 20px;
   }
   section {
     padding: 10px 0;
-    margin-top: 20px;
+    margin-top: 5px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -24,6 +23,8 @@ aside {
       margin-top: 0px;
     }
   }
+
+
 }
 
 .gravatar {
@@ -33,4 +34,48 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+}
+
+
+/* posts */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    color: #000000;
+    display: block;
+    margin-left: 60px;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
 }
