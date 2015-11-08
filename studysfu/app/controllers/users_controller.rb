@@ -103,7 +103,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) unless @user == current_user
+      redirect_to(root_path) unless (@user == (current_user) || current_user.admin?)
     end
 
     #def create_activation_digest
