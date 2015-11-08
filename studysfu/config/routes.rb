@@ -9,16 +9,17 @@ Rails.application.routes.draw do
   get 'personalpage' => 'static_pages#personalpage'
   get 'coursepage'   => 'static_pages#coursepage'
   get 'posting'      => 'static_pages#posting'
+  get 'about'        => 'static_pages#about'
+  get 'contact'      => 'static_pages#contact'
   get 'login'        => 'sessions#new'
   get 'signup'       => 'sessions#new'
-  get 'about' => 'static_pages#about'
-  get 'contact'  => 'static_pages#contact'
+  
   post 'login'       => 'sessions#create'
   delete 'logout'    => 'sessions#destroy'
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :posts, :only => [:index, :create, :new, :destroy] do
+  resources :posts, :only => [:index, :create, :new, :destroy, :edit, :update] do
   member do
     put "like", to:    "posts#upvote"
     put "dislike", to: "posts#downvote"
