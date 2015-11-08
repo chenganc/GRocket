@@ -2,8 +2,8 @@ class PostsController < ApplicationController
 	#before_action :sessions.logged_in?, only: [:create, :upvote, :downvote]
 
 
-	before_action :logged_in_user, only: [:create, :upvote, :downvote, :destroy]
-	before_action :correct_user,   only: :destroy
+	before_action :logged_in_user, only: [:create, :upvote, :downvote, :destroy, :edit, :update]
+	before_action :correct_user,   only: [:destroy, :edit, :update]
 
 	def index
 		@posts = Post.all.paginate(page: params[:page])
@@ -22,6 +22,23 @@ class PostsController < ApplicationController
 	def new
 		@post = Post.new
 	end
+
+	def edit
+	    @post = Post.find(params[:id])
+	end
+
+    def update
+	    respond_to do |format|
+	      if @post.update(post_params)
+	        format.html { redirect_to current_user, notice: 'Post was successfully updated.' }
+	        format.json { render :show, status: :ok, location: @post }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @post.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+
 
 	def upvote
 		@post = Post.find(params[:id])
