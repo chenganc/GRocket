@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   before_action :correct_user,   only: [:edit, :update]
 
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:show, :edit, :update, :destroy]
 
   #before_create :create_activation_digest
 

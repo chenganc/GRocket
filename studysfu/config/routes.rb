@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
-  
+
   #get 'users' => 'sessions#new'
   get 'personalpage' => 'static_pages#personalpage'
   get 'coursepage'   => 'static_pages#coursepage'
@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   get 'contact'      => 'static_pages#contact'
   get 'login'        => 'sessions#new'
   get 'signup'       => 'sessions#new'
-  
+
   post 'login'       => 'sessions#create'
   delete 'logout'    => 'sessions#destroy'
+  resources :comments
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
@@ -25,6 +26,13 @@ Rails.application.routes.draw do
     put "dislike", to: "posts#downvote"
     end
   end
+  resources :links do
+  member do
+    put "like", to:    "links#upvote"
+    put "dislike", to: "links#downvote"
+  end
+  resources :comments
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
