@@ -1,9 +1,20 @@
 <% provide(:title, "Edit user") %>
 <div class="center jumbotron">
+  <div class="info">
+    <%= flash[:info]%>
+  </div>
+  <div class="error">
+    <%= flash[:error]%>
+  </div>
   <h1>Update your profile</h1>
-
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
+      <div class="gravatar_edit">
+        <%= gravatar_for @user %>
+        <a href="http://gravatar.com/emails" target="_blank">change</a>
+      </div>
+      <br></br>
+      <br></br>
       <%= form_for(@user) do |f| %>
 
   	  <%= f.label :firstName %>
@@ -21,11 +32,9 @@
 
         <%= f.label :password_confirmation, "Please repeat your password" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-        <br>
+        <br></br>
         <%= f.submit "Save changes", class: "btn btn-primary btn-block" %>
       <% end %>
-
     </div>
   </div>
 </div>
