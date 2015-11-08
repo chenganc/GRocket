@@ -70,6 +70,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def feed
+    Posts.where("user_id = ?", id)
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
