@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("button").click(function(){
+    $("button-comments").click(function(){
         $("p-reply").toggleClass('hidden');
     });
 });
@@ -191,11 +191,13 @@ $(document).ready(function(){
                                                       <%= link.get_downvotes.size %>
                                                     <% end %>
                                                      
-                                                    <button class="btn-default btn btn-sm">Comments (<%= link.comments.count %>)</button>
-                                                    
+                                                    <button-comments class="btn-default btn btn-sm comments">Comments (<%= link.comments.count %>)</button-comments>
+
                                                     <p-reply class='hidden'>
+                                                    
                                                         <%= simple_form_for [ link, Comment.new]  do |f| %>
                                                           <div class="field">
+                                                          <br>
                                                             <%= f.text_area :body, class: "form-control" %>
                                                           </div>
                                                           <br>
