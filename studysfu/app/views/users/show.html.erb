@@ -158,7 +158,7 @@ $(document).ready(function(){
           <div class="content">
               <div class="container-fluid">
 
-                  <div class="row"><!-- ROW 1--> 
+                  <div class="row"><!-- ROW 1-->
                       <div class="col-md-12"><!-- entry of links-->
                           <div class="card ">
                               <div class="header">
@@ -182,7 +182,7 @@ $(document).ready(function(){
                                                     </aside>
                                                     <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
                                                       <span class="glyphicon glyphicon-chevron-up"></span>
-                                                      Like 
+                                                      Like
                                                       <%= link.get_upvotes.size %>
                                                     <% end %>
                                                     <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
@@ -190,11 +190,11 @@ $(document).ready(function(){
                                                       Dislike
                                                       <%= link.get_downvotes.size %>
                                                     <% end %>
-                                                     
+
                                                     <button-comments class="btn-default btn btn-sm comments">Comments (<%= link.comments.count %>)</button-comments>
 
                                                     <p-reply class='hidden'>
-                                                    
+
                                                         <%= simple_form_for [ link, Comment.new]  do |f| %>
                                                           <div class="field">
                                                           <br>
@@ -208,7 +208,7 @@ $(document).ready(function(){
                                                     </p-reply>
 
 
-                                                  
+
                                                 </tr>
                                             <% end %>
                                             <% end %>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   before_action :correct_user,   only: [:edit, :update]
 
-  before_action :admin_user,     only: [ :destroy]
+  before_action :admin_user,     only: [:show, :edit, :update, :destroy]
 
   #before_create :create_activation_digest
 
@@ -32,7 +32,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    render 'new'
     @user = User.find(params[:id])
+
   end
 
   # POST /users
