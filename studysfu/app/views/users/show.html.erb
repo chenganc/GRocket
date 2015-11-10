@@ -7,6 +7,27 @@
   }
 </style>
 -->
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button-comments").click(function(){
+        $("p-reply").toggleClass('hidden');
+    });
+});
+</script>
+<script>
+  $find.("p-reply").hide();
+</script>
+</head>
+
+
+
+
+
+
+
+
 <body>
 <div class = "jumbotron">
   <div class="wrapper">
@@ -136,6 +157,80 @@
 
           <div class="content">
               <div class="container-fluid">
+
+                  <div class="row"><!-- ROW 1--> 
+                      <div class="col-md-12"><!-- entry of links-->
+                          <div class="card ">
+                              <div class="header">
+                                  <h4 class="title">Tasks</h4>
+                                  <p class="category">Backend development</p>
+                              </div>
+                              <div class="content">
+                                  <div class="table-full-width">
+                                      <table class="table">
+                                          <tbody>
+                                            <% if @user.links.any? %>
+                                              <% @user.links.each do |link| %>
+                                                <tr>
+                                                  <td class="td-actions text-left">
+                                                    <aside>
+                                                      <section class="user_info">
+                                                          <%= link_to gravatar_for(link.user, size: 50), link.user %>
+                                                          <strong><%= link.course %> - <%= link.title %> </strong>
+                                                          <span class="body"><%= link.body %> </span>
+                                                      </section>
+                                                    </aside>
+                                                    <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                                                      <span class="glyphicon glyphicon-chevron-up"></span>
+                                                      Like 
+                                                      <%= link.get_upvotes.size %>
+                                                    <% end %>
+                                                    <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                                                      <span class="glyphicon glyphicon-chevron-down">
+                                                      Dislike
+                                                      <%= link.get_downvotes.size %>
+                                                    <% end %>
+                                                     
+                                                    <button-comments class="btn-default btn btn-sm comments">Comments (<%= link.comments.count %>)</button-comments>
+
+                                                    <p-reply class='hidden'>
+                                                    
+                                                        <%= simple_form_for [ link, Comment.new]  do |f| %>
+                                                          <div class="field">
+                                                          <br>
+                                                            <%= f.text_area :body, class: "form-control" %>
+                                                          </div>
+                                                          <br>
+                                                          <%= f.submit "Add Comment", class: "btn btn-primary" %>
+                                                          <br>
+                                                          <br>
+                                                        <% end %>
+                                                    </p-reply>
+
+
+                                                  
+                                                </tr>
+                                            <% end %>
+                                            <% end %>
+                                          </tbody>
+                                      </table>
+                                  </div>
+
+                                  <div class="footer">
+                                      <hr>
+                                      <div class="stats">
+                                          <i class="fa fa-history"></i> Updated 3 minutes ago
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div> <!-- entry  of links-->
+
+
+                  </div> <!-- row 1-->
+
+
+
                   <div class="row">
                       <div class="col-md-4">
                           <div class="card">
