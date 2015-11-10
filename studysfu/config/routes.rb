@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   post "users/:id/edit"    => "users#edit"
   resources :comments
   resources :users
-  resource :user
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :posts, :only => [:index, :create, :new, :destroy, :edit, :update] do

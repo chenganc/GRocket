@@ -7,16 +7,18 @@
     <div class="page-header">
         <%= link_to gravatar_for(@link.user, size: 50), @link.user %>
       <h1><%= @link.title %><br> <p>Submitted by <%= @link.user.firstName %></p></h1>
-    </div>
-    <div class="inner-box">
-      <p><%= @link.course %></p>
-      <p><%= @link.body %></p>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-default btn-sm"><%= @link.course%></button>
+      <div class="inner-box">
+        <br>
+        <div class="posts">
+        <p><%= @link.body %></p>
+        </div>
+        <br>
+      </div>
     </div>
 
-    <div class="btn-group pull-right">
+
+    <div class="btn-group pull-left">
+      <button type="button" class="btn btn-default btn-sm"><%= @link.course%></button>
       <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-up"></span>
         Like
@@ -30,12 +32,12 @@
     </div>
 
     <% if @link.user == current_user -%>
-    	<div class="btn-group">
+    	<div class="btn-group pull-right">
     		<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default" %>
     		<%= link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
     	</div>
     <% end %>
-
+    <br>
     <h3 class="comments_title">
       <%= @link.comments.count %> Comments
     </h3>
