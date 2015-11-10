@@ -89,7 +89,7 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :url)
+      params.require(:link).permit(:title, :course ,:body)
     end
     def admin_user
       redirect_to(root_path) unless current_user && current_user.admin?
