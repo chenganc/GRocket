@@ -1,8 +1,9 @@
 <%= div_for(comment) do %>
 	<div class="comments_wrapper clearfix">
+		  <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
 		<div class="pull-left">
 			<p class="lead"><%= comment.body %></p>
-			<p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></p>
+			<p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.firstName %></small></p>
 		</div>
 
 		<div class="btn-group pull-right">

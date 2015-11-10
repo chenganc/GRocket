@@ -1,26 +1,29 @@
 <div class="box">
-  <br></br>
+  <br>
   <div class="info">
     <%= flash[:info]%>
   </div>
-  <% @links.each do |link| %>
-    <h2>
-      <%= link_to link.title, link %><br>
-      <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.firstName %></small>
-    </h2>
-    <div class="btn-group">
-      <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a>
-      <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-up"></span>
-      Like
-      <%= link.get_upvotes.size %>
-      <% end %>
-      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-down">
-      Dislike
-      <%= link.get_downvotes.size %>
-      <% end %>
-    </div>
-  <% end %>
-  <br></br>
+  <div class="posts">
+    <% @links.each do |link| %>
+      <h2>
+        <%= link_to gravatar_for(link.user, size: 50), link.user %>
+        <%= link_to link.title, link %><br>
+        <p class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.firstName %></p>
+      </h2>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default btn-sm"><%= link.course%></button>
+        <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        Like
+        <%= link.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+        Dislike
+        <%= link.get_downvotes.size %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>  
+  <br>
 </div>

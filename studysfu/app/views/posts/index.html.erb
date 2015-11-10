@@ -21,6 +21,7 @@
 
 						<div class="post-box">
 						  <h3><%= post.title %></h3>
+							<p><%= post.body %></p>
 						  <p><%= auto_link(post.url) %></p>
 						  <p>by <%= post.user.firstName %> <%= time_ago_in_words(post.created_at) %> ago</p>
 						</div>
