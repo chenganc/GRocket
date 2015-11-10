@@ -11,7 +11,7 @@
         <p class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.firstName %></p>
       </h2>
       <div class="btn-group">
-        <button type="button" class="btn btn-default btn-sm"><%= link.course%></button>
+        <button type="button" class="btn btn-default btn-sm"><%= link.course %></button>
         <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-up"></span>
         Like
@@ -21,6 +21,9 @@
         <span class="glyphicon glyphicon-chevron-down">
         Dislike
         <%= link.get_downvotes.size %>
+        <% end %>
+        <%= link_to link, method: :put, class: "btn btn-default btn-sm" do %>
+        Comments (<%= link.comments.count %>)
         <% end %>
       </div>
     <% end %>
