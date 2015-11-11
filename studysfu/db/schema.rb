@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151103212722) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "comments", force: :cascade do |t|
     t.integer  "link_id"
     t.text     "body"
@@ -24,8 +21,8 @@ ActiveRecord::Schema.define(version: 20151103212722) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["link_id"], name: "index_comments_on_link_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["link_id"], name: "index_comments_on_link_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "title"
@@ -36,7 +33,7 @@ ActiveRecord::Schema.define(version: 20151103212722) do
     t.integer  "user_id"
   end
 
-  add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
+  add_index "links", ["user_id"], name: "index_links_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -47,7 +44,7 @@ ActiveRecord::Schema.define(version: 20151103212722) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -65,7 +62,7 @@ ActiveRecord::Schema.define(version: 20151103212722) do
     t.datetime "reset_sent_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -79,7 +76,7 @@ ActiveRecord::Schema.define(version: 20151103212722) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end
