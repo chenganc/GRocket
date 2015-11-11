@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #root 'user_path'
   #get 'users' => 'sessions#new'
 
-  get 'personalpage' => 'static_pages#personalpage'
+  get 'personalpage' => 'users#show'
   get 'coursepage'   => 'static_pages#coursepage'
   get 'posting'      => 'static_pages#posting'
   get 'about'        => 'static_pages#about'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'signup'       => 'sessions#new'
   post 'login'       => 'sessions#create'
   delete 'logout'    => 'sessions#destroy'
-
+  get 'chatroom'     => 'users#chatroom'
   post "users/:id/edit"    => "users#edit"
   resources :comments
   resources :users
