@@ -1,6 +1,6 @@
 default: &default
-  #adapter: postgresql
-  adapter: sqlite3
+  adapter: postgresql
+  #adapter: sqlite3
   encoding: unicode
   pool: 5
   timeout: 5000
@@ -10,27 +10,27 @@ default: &default
 development:
   <<: *default
   #comment out the following line if you are running without pg
- # database: myapp_development
+  database: myapp_development
   host: localhost
 
   #uncomment the following line for running locally
-  database: db/development.sqlite3
+  #database: db/development.sqlite3
 
 test:
   <<: *default
   #comment out the following line if you are running without pg
-  #database: myapp_test
+  database: myapp_test
 
   #uncomment the following line for running locally
-  database: db/test.sqlite3
+  #database: db/test.sqlite3
 
 production:
   <<: *default
   #comment out the following line if you are running without pg
-  #database: myapp_production
+  database: myapp_production
   username: myapp
   password: <%= ENV['MYAPP_DB_PASSWORD'] %>
 
 
   #uncomment the following line for running locally
-  database: db/production.sqlite3
+  #database: db/production.sqlite3
