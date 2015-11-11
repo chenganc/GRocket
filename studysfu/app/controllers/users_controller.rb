@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:show, :index, :edit, :update]
 
-  before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   before_action :admin_user,     only: [:destroy]
 
@@ -32,9 +32,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    render 'new'
     @user = User.find(params[:id])
-
   end
 
   # POST /users

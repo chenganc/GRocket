@@ -163,80 +163,69 @@ $(document).ready(function(){
 
           <div class="content">
               <div class="container-fluid">
-
+                <% if @user.links.any? %>
+                  <% @user.links.each do |link| %>
                   <div class="row"><!-- ROW 1-->
                       <div class="col-md-12"><!-- entry of links-->
                           <div class="card ">
-                              <div class="header">
-                                  <h4 class="title">Tasks</h4>
-                                  <p class="category">Backend development</p>
-                              </div>
+
                               <div class="content">
-                                  <div class="table-full-width">
-                                      <table class="table">
-                                          <tbody>
-                                            <% if @user.links.any? %>
-                                              <% @user.links.each do |link| %>
-                                                <tr>
-                                                  <td class="td-actions text-left">
-                                                    <aside>
-                                                      <section class="user_info">
-                                                          <%= link_to gravatar_for(link.user, size: 50), link.user %>
-                                                          <strong><%= link.course %> - <%= link.title %> </strong>
-                                                          <span class="body"><%= link.body %> </span>
-                                                      </section>
-                                                    </aside>
-                                                    <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-                                                      <span class="glyphicon glyphicon-chevron-up"></span>
-                                                      Like
-                                                      <%= link.get_upvotes.size %>
-                                                    <% end %>
-                                                    <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-                                                      <span class="glyphicon glyphicon-chevron-down">
-                                                      Dislike
-                                                      <%= link.get_downvotes.size %>
-                                                    <% end %>
+                                <aside>
+                                      <%= link_to gravatar_for(link.user, size: 50), link.user %>
+                                      <strong class="h5"><strong><%= link.course %> <br><%= link.title %> </strong></strong>
 
-                                                    <button-comments class="btn-default btn btn-sm comments">Comments (<%= link.comments.count %>)</button-comments>
+                                </aside>
+                                <hr>
+                                <span class="body"><%= link.body %> </span>
 
-                                                    <p-reply class='hidden'>
-
-                                                        <%= simple_form_for [ link, Comment.new]  do |f| %>
-                                                          <div class="field">
-                                                          <br>
-                                                            <%= f.text_area :body, class: "form-control" %>
-                                                          </div>
-                                                          <br>
-                                                          <%= f.submit "Add Comment", class: "btn btn-primary" %>
-                                                          <br>
-                                                          <br>
-                                                        <% end %>
-                                                    </p-reply>
-
-
-
-                                                </tr>
-                                            <% end %>
-                                            <% end %>
-                                          </tbody>
-                                      </table>
-                                  </div>
-
-                                  <div class="footer">
                                       <hr>
                                       <div class="stats">
-                                          <i class="fa fa-history"></i> Updated 3 minutes ago
+
+                                        <tbody>
+                                              <tr>
+                                                <td class="td-actions text-left">
+
+                                                  <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                                    Like
+                                                    <%= link.get_upvotes.size %>
+                                                  <% end %>
+                                                  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                                                    <span class="glyphicon glyphicon-chevron-down">
+                                                    Dislike
+                                                    <%= link.get_downvotes.size %>
+                                                  <% end %>
+
+                                                  <button-comments class="btn-default btn btn-sm comments">Comments (<%= link.comments.count %>)</button-comments>
+
+                                                  <p-reply class='hidden'>
+
+                                                      <%= simple_form_for [ link, Comment.new]  do |f| %>
+                                                        <div class="field">
+                                                        <br>
+                                                          <%= f.text_area :body, class: "form-control" %>
+                                                        </div>
+                                                        <br>
+                                                        <%= f.submit "Add Comment", class: "btn btn-primary" %>
+                                                        <br>
+                                                        <br>
+                                                      <% end %>
+                                                  </p-reply>
+                                              </tr>
+                                        </tbody>
+                                          <i class="fa fa-history"></i> <%= time_ago_in_words(link.created_at) %>
                                       </div>
-                                  </div>
+
                               </div>
                           </div>
                       </div> <!-- entry  of links-->
 
 
                   </div> <!-- row 1-->
+                  <% end %>
+                  <% end %>
 
-
-
+                  <!--
                   <div class="row">
                       <div class="col-md-4">
                           <div class="card">
@@ -261,76 +250,40 @@ $(document).ready(function(){
                               </div>
                           </div>
                       </div>
+                    -->
+                    <div class="row">
+                          <div class="col-md-6">
+                              <div class="card">
+                                  <div class="header">
+                                      <h4 class="title">Weather</h4>
+                                  </div>
+                                  <div class="content">
+                                    <a href="http://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/349727" class="aw-widget-legal">
 
-                      <div class="col-md-8">
+
+    <!--
+    By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
+    -->
+    </a><div id="awcc1447204548226" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="en-us" data-useip="true" data-uid="awcc1447204548226"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+                                  </div>
+                              </div>
+                          </div>
+
+
+                      <!-- PUT THE CODE FOR THE CALENDER HERE-->
+                      <div class="col-md-6">
                           <div class="card">
                               <div class="header">
-                                  <h4 class="title">Weather</h4>
+                                  <h4 class="title">Calendar</h4>
                               </div>
                               <div class="content">
-                                <a href="http://www.accuweather.com/en/us/new-york-ny/10007/weather-forecast/349727" class="aw-widget-legal">
-<!--
-By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
--->
-</a><div id="awcc1447204548226" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="en-us" data-useip="true" data-uid="awcc1447204548226"></div><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+<div><script charset="UTF-8" src="http://widget24.com/code/calendar?data%5BWidget%5D%5Bcss%5D=white" type="text/javascript"></script></div>
                               </div>
                           </div>
                       </div>
-                  </div>
+
 
                   </div>   <!-- row -->
-
-                  <div class="row">
-                      <div class="col-md-8"><!-- entry-->
-                          <div class="card ">
-                              <div class="header">
-                                  <h4 class="title">Tasks</h4>
-                                  <p class="category">Backend development</p>
-                              </div>
-                              <div class="content">
-                                  <div class="table-full-width">
-                                      <table class="table">
-                                          <tbody>
-                                            <% if @user.posts.any? %>
-                                            <% @posts.each do |post| %>
-                                              <tr>
-                                                <td class="td-actions text-left">
-                                                  <aside>
-                                                    <section class="user_info">
-                                                    <%= link_to gravatar_for(post.user, size: 50), post.user %>
-                                                      <span class="title"><strong><%= post.title %> </strong></span>
-                                                      <span class="url"><%= post.url %></span>
-                                                      <span class="user">Posted by <%= link_to post.user.firstName %>, <%= time_ago_in_words(post.created_at) %> ago. </span>
-                                                    </section>
-                                                  </aside>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                        <%=link_to " ", edit_post_path(post) , class:"fa fa-edit" %>
-                                                    </button>
-                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                        <%=link_to " ", post, method: :delete , class:"fa fa-times" %>
-                                                    </button>
-                                                </td>
-                                              </tr>
-                                            <% end %>
-                                            <% end %>
-                                          </tbody>
-                                      </table>
-                                  </div>
-
-                                  <div class="footer">
-                                      <hr>
-                                      <div class="stats">
-                                          <i class="fa fa-history"></i> Updated 3 minutes ago
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div> <!-- entry-->
-
-
-                  </div> <!-- row -->
 
 
 

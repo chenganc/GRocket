@@ -10,13 +10,14 @@ class CommentsController < ApplicationController
 
       if @comment.save
         flash[:info] = "Comment was successfully created."
-        format.html { redirect_to @link, notice: 'Comment was successfully created.' }
+        redirect_back_or :back
+        #format.html { redirect_to :back, notice: 'Comment was successfully created.' }
       else
         flash[:error] = "Operation was unsuccessful."
-        redirect_back_or @link
+        redirect_back_or links_path
         #format.html { render action: "new" }
       end
-    
+
   end
 
   # DELETE /comments/1
@@ -39,7 +40,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body, :user_id, :link_id)
     end
 
     def authorized_user
