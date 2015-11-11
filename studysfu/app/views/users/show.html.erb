@@ -33,12 +33,17 @@ $(document).ready(function(){
   <div class="wrapper">
       <div class="sidebar", data-color="orange", data-image="assets/img/sidebar-5.jpg">
         <div class="sidebar-wrapper">
-        <div class="logo">
-          <a href="#" class="simple-text">
-            Features
-          </a>
+          <div class="posts">
+            <br>
+            <%= link_to gravatar_for(current_user, size: 90), current_user %>
+            <br>
+            <br>
+          </div>
+        <div class="disname">
+          <p>  <%= current_user.firstName %> </p>
+          <p>  <%= current_user.lastName %> </p>
         </div>
-            
+
               <ul class="nav">
                   <li class="active">
                       <a href="#">
