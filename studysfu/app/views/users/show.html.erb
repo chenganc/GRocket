@@ -21,7 +21,25 @@ $(document).ready(function(){
 </script>
 </head>
 
-
+<!--< % provide(:title, @user.firstName) %>-->
+<!--<div class="row">-->
+<!--  <aside class="col-md-4">-->
+<!--    <section class="user_info">-->
+<!--      <h1>-->
+<!--        < %= @user.firstName %>-->
+<!--      </h1>-->
+<!--    </section>-->
+<!--  </aside>-->
+<!--  <div class="col-md-8">-->
+<!--    < % if @user.resumelists.any? %>-->
+<!--      <h3>Resumelists (< %= @user.resumelists.count %>)</h3>-->
+<!--      <ol class="resumelists">-->
+<!--        < %= render @resumelists %>-->
+<!--      </ol>-->
+<!--      < %= will_paginate @resumelists %>-->
+<!--    < % end %>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 
@@ -72,7 +90,7 @@ $(document).ready(function(){
                   </li>
 
                    <li>
-                      <a href="#">
+                      <a href="../resumelists/">
                           <i class="pe-7s-news-paper"></i>
                           <p>Resume</p>
                       </a>
@@ -179,6 +197,7 @@ $(document).ready(function(){
                                 <span class="body"><%= link.body %> </span>
 
                                       <hr>
+                                
                                       <div class="stats">
 
                                         <tbody>

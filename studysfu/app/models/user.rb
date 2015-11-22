@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :resumelists, dependent: :destroy
   has_many :links
   has_many :posts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token

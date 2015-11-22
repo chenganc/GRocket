@@ -1,0 +1,7 @@
+<li id="resumelist-<%= resumelist.id %>">
+  <span class="content"><%= resumelist.content %></span>
+  <span>  |  </span>
+  <span class="content"><%= resumelist.section %></span>
+   <%= link_to 'Edit', edit_resumelist_path(resumelist), class: "btn btn-default" %>
+    <!--< %= link_to 'Delete', @resumelist, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>-->
+</li>

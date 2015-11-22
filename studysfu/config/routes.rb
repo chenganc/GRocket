@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   delete 'logout'    => 'sessions#destroy'
   get 'chatroom'     => 'users#chatroom'
   post "users/:id/edit"    => "users#edit"
+  
+#  get 'resumelists'  =>  'resumelists#index'
+  get 'resumelist'      => 'static_pages#resumelist'
+  resources :resumelists
+  
   resources :comments
   resources :users
   resources :account_activations, only: [:edit]
