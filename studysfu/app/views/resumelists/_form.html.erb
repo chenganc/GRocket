@@ -18,10 +18,15 @@
           <%= f.label :content %><br>
           <%= f.text_field :content, placeholder: "Heading or point", class: "form-control" %>
         </div>
+        
         <div class="form-group">
-          <%= f.label :section %><br>
-          <%= f.text_field :section, placeholder: "Heading or point", class: "form-control" %>
+        <%= f.label :section %><br>
+        <%= f.radio_button(:section, "heading") %>
+        <%= f.label(:section_heading, "Title") %>
+        <%= f.radio_button(:section, "point") %>
+        <%= f.label(:section_point, "detail") %>
         </div>
+          
         <div class="form-group">
           <%= f.label :start %><br>
           <%= f.text_area :start, placeholder: "Start date, if any", class: 'form-control' %>
