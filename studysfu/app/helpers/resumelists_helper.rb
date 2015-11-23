@@ -1,0 +1,2 @@
+module ResumelistsHelper
+end

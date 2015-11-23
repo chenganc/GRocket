@@ -1,0 +1,30 @@
+<div class="box">
+  <br>
+  <div class="info">
+    <%= flash[:info]%>
+  </div>
+  
+<h1> Resume database</h1>
+
+<!--< % provide(:title, resumelist.user.firstName ) %>-->
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <!--< %= @user.firstName %>-->
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <!--< % if @user.resumelists.any? %>-->
+    <!--  <h3>Resumelists (< %= @user.resumelists.count %>)</h3>-->
+      <ol class="resumelists">
+        <%= render @resumelists %>
+      </ol>
+    <!--< %= link_to 'Edit', edit_resumelist_path(@resumelist), class: "btn btn-default" %>-->
+    <%= link_to 'Add Point', new_resumelist_path(@resumelist), class: "btn btn-default" %>
+    
+      <!--< %= will_paginate @resumelists %>-->
+    <!--< % end %>-->
+  </div>
+</div>

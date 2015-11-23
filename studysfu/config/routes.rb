@@ -18,8 +18,11 @@ Rails.application.routes.draw do
   get 'chatroom'     => 'users#chatroom'
   post "users/:id/edit"    => "users#edit"
   post "comments/:id" => "comments#edit"
-  #post "links/:id" => "links#show"
 
+
+#  get 'resumelists'  =>  'resumelists#index'
+  get 'resumelist'      => 'static_pages#resumelist'
+  resources :resumelists
   resources :comments
   resources :users
   resources :account_activations, only: [:edit]
