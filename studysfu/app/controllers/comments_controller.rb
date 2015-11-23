@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  #def index
-  #  @comment = Comment.all
-  #end
+  def index
+    @comment = Comment.all
+  end
   def create
     @link = Link.find(params[:link_id])
     @comment = @link.comments.new(comment_params)
@@ -31,6 +31,25 @@ class CommentsController < ApplicationController
     flash[:info] = "Comment deleted"
     redirect_to :back
   end
+  # GET /links/1/edit
+  def edit
+  end
+
+  def update
+    #respond_to do |format|
+      if @comment.update(comment_params)
+        flash[:info] = "Comment was successfully updated"
+        redirect_to link_path
+        #format.html { redirect_to current_user, notice: 'Post was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @post }
+      else
+        flash[:error] = "Comment could not be updated"
+        redirect_to link_path
+        #format.html { render :edit }
+        #format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    #end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

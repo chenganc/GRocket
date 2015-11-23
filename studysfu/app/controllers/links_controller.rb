@@ -40,15 +40,19 @@ class LinksController < ApplicationController
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
-    respond_to do |format|
+    #respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
-        format.json { render :show, status: :ok, location: @link }
+        flash[:info] = "Post was successfully updated"
+        redirect_to @link
+        #format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @link }
       else
-        format.html { render :edit }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        flash[:info] = "Post could not be updated"
+        redirect_to @link
+        #format.html { render :edit }
+        #format.json { render json: @link.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /links/1
@@ -91,7 +95,7 @@ class LinksController < ApplicationController
     def link_params
       params.require(:link).permit(:title, :course, :body)
     end
-    
+
     def admin_user
       redirect_to(root_path) unless current_user && current_user.admin?
     end

@@ -17,17 +17,14 @@ Rails.application.routes.draw do
   delete 'logout'    => 'sessions#destroy'
   get 'chatroom'     => 'users#chatroom'
   post "users/:id/edit"    => "users#edit"
+  post "comments/:id" => "comments#edit"
+  #post "links/:id" => "links#show"
+
   resources :comments
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :posts, :only => [:index, :create, :new, :destroy, :edit, :update] do
-    member do
-      put "like", to:    "posts#upvote"
-      put "dislike", to: "posts#downvote"
-      end
-    end
-    resources :links do
+  resources :links do
     member do
       put "like", to:    "links#upvote"
       put "dislike", to: "links#downvote"

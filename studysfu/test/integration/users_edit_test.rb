@@ -14,6 +14,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                     email: "foo@invalid",
                                     password:              "foo",
                                     password_confirmation: "bar" }
-    assert_template 'users/edit'
+    assert_redirected_to login_path
   end
 end

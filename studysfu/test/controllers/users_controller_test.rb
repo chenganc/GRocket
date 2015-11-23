@@ -16,7 +16,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should show user" do
     get :show, id: @user
-    assert_response :success
+    assert_redirected_to login_path
   end
 
   test "should redirect update when not logged in" do
