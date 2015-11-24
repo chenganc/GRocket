@@ -29,9 +29,9 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         flash[:info] = "Post was successfully created"
-        redirect_to @link
-        #format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        #format.json { render :show, status: :created, location: @link }
+        #redirect_to @link
+        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.json { render :show, status: :created, location: @link }
       else
         flash[:error] = "Post could not be created"
         #redirect_to @link

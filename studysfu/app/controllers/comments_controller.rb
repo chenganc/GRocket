@@ -10,8 +10,10 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         flash[:info] = "Comment was successfully created."
-        redirect_back_or :back
+        #redirect_back_or :back
         #format.html { redirect_to :back, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @link, notice: 'Comment was successfully created.' }
+        format.json { render json: @comment, status: :created, location: @comment }
       else
         #flash[:error] = "Operation was unsuccessful."
         format.html { render action: "new" }
@@ -41,9 +43,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.update(comment_params)
         flash[:info] = "Comment was successfully updated"
-        redirect_to link_path
-        #format.html { redirect_to current_user, notice: 'Post was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @post }
+        #redirect_to link_path
+        format.html { redirect_to link_path, notice: 'Comment was successfully updated' }
+        format.json { render :show, status: :ok, location: @post }
       else
         flash[:error] = "Comment could not be updated"
         #redirect_to link_path
