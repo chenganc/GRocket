@@ -24,17 +24,21 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = current_user.links.build(link_params)
+    @link = current_user.links.new(link_params)
 
-    respond_to do |format|
+    #respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        format.json { render :show, status: :created, location: @link }
+        flash[:info] = "Post was successfully created"
+        redirect_to @link
+        #format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        #format.json { render :show, status: :created, location: @link }
       else
-        format.html { render :new }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        flash[:error] = "Post could not be created"
+        redirect_to @link
+        #format.html { render :new }
+        #format.json { render json: @link.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # PATCH/PUT /links/1
@@ -93,7 +97,7 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :course, :body)
+      params.require(:link).permit(:title, :course, :body, :attachment)
     end
 
     def admin_user

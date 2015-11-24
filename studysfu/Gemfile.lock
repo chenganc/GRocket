@@ -57,6 +57,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     chunky_png (1.3.5)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -251,6 +256,7 @@ DEPENDENCIES
   bootstrap-will_paginate
   byebug
   capybara
+  carrierwave
   coffee-rails (~> 4.1.0)
   compass
   database_cleaner
@@ -280,3 +286,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   will_paginate
+
+BUNDLED WITH
+   1.10.6

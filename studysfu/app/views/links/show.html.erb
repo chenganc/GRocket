@@ -32,6 +32,9 @@
         Dislike
         <%= @link.get_downvotes.size %>
       <% end %>
+      <% if @link.attachment.url != nil -%>
+        <%= link_to "View Attachment in New Tab", @link.attachment_url, :target => "_blank", class: "btn btn-default btn-sm"  %>
+      <% end %>
     </div>
 
     <% if @link.user == current_user -%>

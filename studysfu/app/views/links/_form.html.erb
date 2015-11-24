@@ -26,6 +26,11 @@
           <%= f.label :body %><br>
           <%= f.text_area :body, placeholder: "What do you want discuss?", class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label :attachment %><br>
+          <%= f.file_field :attachment, placeholder: "File you will like to upload", class: 'form-control' %>
+        </div>
+
         <br></br>
         <div class="form-group">
           <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
