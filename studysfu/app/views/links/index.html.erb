@@ -3,6 +3,9 @@
   <div class="info">
     <%= flash[:info]%>
   </div>
+  <div class="error">
+    <%= flash[:error]%>
+  </div>
   <div class="posts">
     <% @links.reverse.each do |link| %>
       <h2>

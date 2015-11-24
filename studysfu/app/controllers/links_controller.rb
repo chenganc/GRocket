@@ -26,7 +26,7 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.new(link_params)
 
-    #respond_to do |format|
+    respond_to do |format|
       if @link.save
         flash[:info] = "Post was successfully created"
         redirect_to @link
@@ -34,11 +34,11 @@ class LinksController < ApplicationController
         #format.json { render :show, status: :created, location: @link }
       else
         flash[:error] = "Post could not be created"
-        redirect_to @link
-        #format.html { render :new }
-        #format.json { render json: @link.errors, status: :unprocessable_entity }
+        #redirect_to @link
+        format.html { render :new }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
       end
-    #end
+    end
   end
 
   # PATCH/PUT /links/1
@@ -51,7 +51,7 @@ class LinksController < ApplicationController
         #format.html { redirect_to @link, notice: 'Link was successfully updated.' }
         #format.json { render :show, status: :ok, location: @link }
       else
-        flash[:info] = "Post could not be updated"
+        flash[:error] = "Post could not be updated"
         redirect_to @link
         #format.html { render :edit }
         #format.json { render json: @link.errors, status: :unprocessable_entity }
