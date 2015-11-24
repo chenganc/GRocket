@@ -34,6 +34,16 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+  resources :courses, only: [:index, :show] do
+    member do
+      get 'info', to: 'courses#info', as: 'get_info'
+    end
+    collection do
+      get 'get_terms',       to: 'courses#get_terms'
+      get 'get_departments', to: 'courses#get_departments'
+      get 'get_courses',     to: 'courses#get_courses'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

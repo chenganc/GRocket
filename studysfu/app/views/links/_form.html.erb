@@ -23,6 +23,25 @@
           <%= f.text_field :course, placeholder: "Which course is it related?", class: "form-control" %>
         </div>
         <div class="form-group">
+          <div class="form-group col-sm-3">
+            <br>
+            <%= collection_select(:year, :number, @years, :id, :number, (@year_select ? {prompt: "Years", selected: @year_select} : {prompt: "Years"}), {class: 'form-control year_select', style: 'width: 100%'}) %>
+          </div>
+          <div class="form-group col-sm-3">
+              <br>
+            <%= collection_select(:term, :name, @terms, :id, :name, (@term_select ? {prompt: "Terms", selected: @term_select} : {prompt: "Terms"}), (@terms.size == 0 ? {class: 'form-control term_select', disabled: 'disabled'} : {class: 'form-control term_select'})) %>
+          </div>
+          <div class="form-group col-sm-3">
+            <%= f.label :department %><br>
+            <%= f.collection_select( :department, @departments, :department, :department, (@department_select ? {prompt: "Departments", selected: @department_select} : {prompt: "Departments"}), (@departments.size == 0 ? {class: 'form-control department_select', disabled: 'disabled'} : {class: 'form-control department_select'})) %>
+          </div>
+        <div class="form-group col-sm-3">
+           <%= f.label :course %><br>
+            <%= f.collection_select( :course, @courses, :course, :course, (@course_select ? {prompt: "Courses", selected: @course_select} : {prompt: "Courses"}), (@courses.size == 0 ? {class: 'form-control course_select', disabled: 'disabled'} : {class: 'form-control course_select'})) %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= f.label :body %><br>
           <%= f.text_area :body, placeholder: "What do you want discuss?", class: 'form-control' %>
         </div>
