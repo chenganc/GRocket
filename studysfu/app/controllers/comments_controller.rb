@@ -7,17 +7,19 @@ class CommentsController < ApplicationController
     @link = Link.find(params[:link_id])
     @comment = @link.comments.new(comment_params)
     @comment.user = current_user
-
+    respond_to do |format|
       if @comment.save
         flash[:info] = "Comment was successfully created."
         redirect_back_or :back
         #format.html { redirect_to :back, notice: 'Comment was successfully created.' }
       else
-        flash[:error] = "Operation was unsuccessful."
-        redirect_back_or links_path
-        #format.html { render action: "new" }
-      end
+        #flash[:error] = "Operation was unsuccessful."
+        format.html { render action: "new" }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        #redirect_back_or links_path
 
+      end
+    end
   end
 
   # DELETE /comments/1
@@ -36,7 +38,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    #respond_to do |format|
+    respond_to do |format|
       if @comment.update(comment_params)
         flash[:info] = "Comment was successfully updated"
         redirect_to link_path
@@ -44,11 +46,11 @@ class CommentsController < ApplicationController
         #format.json { render :show, status: :ok, location: @post }
       else
         flash[:error] = "Comment could not be updated"
-        redirect_to link_path
-        #format.html { render :edit }
-        #format.json { render json: @post.errors, status: :unprocessable_entity }
+        #redirect_to link_path
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    #end
+    end
 end
 
   private
