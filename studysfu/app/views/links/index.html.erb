@@ -4,7 +4,7 @@
     <%= flash[:info]%>
   </div>
   <div class="posts">
-    <% @links.each do |link| %>
+    <% @links.reverse.each do |link| %>
       <h2>
         <%= link_to gravatar_for(link.user, size: 50), link.user %>
         <%= link_to link.title, link %><br>
@@ -27,6 +27,6 @@
         <% end %>
       </div>
     <% end %>
-  </div>  
+  </div>
   <br>
 </div>
