@@ -29,6 +29,7 @@ User.create!(firstName:  "Admin",
   if n < 9
     Link.create!(title: "hello from #{firstName}",
                  course: "CMPT#{n+1}",
+                 department: "CMPT",
                  body: "Hello world!",
                  user_id: "#{n+2}")
   end

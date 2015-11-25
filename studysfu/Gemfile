@@ -19,6 +19,8 @@ gem 'susy'
 gem 'compass'
 gem 'puma'
 
+gem 'rest-client'
+
 # Use SCSS for stylesheets "comment out when running locally"
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

@@ -1,0 +1,10 @@
+$('.year_select').prop('disabled', false)
+$('.term_select').prop('disabled', false)
+$('.department_select').prop('disabled', false)
+$('.course_select').prop('disabled', false)
+$('.course_select').empty()
+$('.course_select').append($('<option value="0">Courses</option>'))
+<% @courses.each do |course| %>
+  $('.course_select').append($('<option value="<%= course.id %>"><%= course.number %></option>'))
+<% end %>
+$('.course_select').focus()

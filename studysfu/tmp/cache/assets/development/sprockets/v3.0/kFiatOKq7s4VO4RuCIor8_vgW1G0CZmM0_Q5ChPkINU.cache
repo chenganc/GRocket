@@ -1,0 +1,68 @@
+I"“(function() {
+  $(document).on('change', '.year_select', function() {
+    $('.term_select').val('0');
+    $('.department_select').val('0');
+    $('.department_select').prop('disabled', true);
+    $('#course_list').empty();
+    if ($('.year_select option:selected').val() !== "") {
+      $('.year_select').prop('disabled', true);
+      return $.ajax({
+        url: '/courses/get_terms',
+        type: 'GET',
+        dataType: 'script',
+        data: {
+          year_id: $('.year_select option:selected').val()
+        }
+      });
+    } else {
+      return $('.term_select').prop('disabled', true);
+    }
+  });
+
+  $(document).on('change', '.term_select', function() {
+    $('.department_select').val('0');
+    $('#course_list').empty();
+    if ($('.term_select option:selected').val() !== "" && $('.term_select option:selected').val() !== "0") {
+      $('.year_select').prop('disabled', true);
+      $('.term_select').prop('disabled', true);
+      return $.ajax({
+        url: '/courses/get_departments',
+        type: 'GET',
+        dataType: 'script',
+        data: {
+          year_id: $('.year_select option:selected').val(),
+          term_id: $('.term_select option:selected').val()
+        }
+      });
+    } else {
+      return $('.department_select').prop('disabled', true);
+    }
+  });
+
+  $(document).on('change', '.department_select', function() {
+    $('#course_list').empty();
+    if ($('.department_select option:selected').val() !== "" && $('.department_select option:selected').val() !== "0") {
+      $('.year_select').prop('disabled', true);
+      $('.term_select').prop('disabled', true);
+      $('.department_select').prop('disabled', true);
+      return $.ajax({
+        url: '/courses/get_courses',
+        type: 'GET',
+        dataType: 'script',
+        data: {
+          year_id: $('.year_select option:selected').val(),
+          term_id: $('.term_select option:selected').val(),
+          department_id: $('.department_select option:selected').val()
+        }
+      });
+    } else {
+      return $('.course_select').prop('disabled', true);
+    }
+  });
+
+  $(document).on('change', '.course_select', function() {
+    return $('#course_list').empty();
+  });
+
+}).call(this);
+:ET
