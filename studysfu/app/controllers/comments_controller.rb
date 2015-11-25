@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         flash[:info] = "Comment was successfully updated"
         #redirect_to link_path
-        format.html { redirect_to link_path, notice: 'Comment was successfully updated' }
+        format.html { redirect_to links_path, notice: 'Comment was successfully updated' }
         format.json { render :show, status: :ok, location: @post }
       else
         flash[:error] = "Comment could not be updated"

@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20151123062234) do
   add_index "comments", ["link_id"], name: "index_comments_on_link_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "course"

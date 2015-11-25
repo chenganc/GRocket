@@ -182,7 +182,7 @@ $(document).ready(function(){
           <div class="content">
               <div class="container-fluid">
                 <% if @user.links.any? %>
-                  <% @user.links.each do |link| %>
+                  <% @user.links.reverse.each do |link| %>
                   <div class="row"><!-- ROW 1-->
                       <div class="col-md-12"><!-- entry of links-->
                           <div class="card ">

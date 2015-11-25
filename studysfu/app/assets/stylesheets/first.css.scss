@@ -323,10 +323,13 @@ body {
 
 .cen {
     text-align:center;
+    .p {
+      text-align:center;
+    }
 }
 
 .posts {
-  margin-left: 2em;
+  margin-left: 20em;
   margin-right: 2em;
 }
 .inner-box {
