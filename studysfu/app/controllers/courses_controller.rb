@@ -183,7 +183,7 @@ class CoursesController < ApplicationController
             sections_fetch_error_count += 1
             retry
           else
-            flash[:danger] = "Could not load Course Details"
+            flash[:error] = "Could not load Course Details"
             return
           end
         end
@@ -218,7 +218,7 @@ class CoursesController < ApplicationController
               section_fetch_error_count += 1
               retry
             else
-              flash[:danger] = "Could not load some Course Details"
+              flash[:error] = "Could not load some Course Details"
               next
             end
           end

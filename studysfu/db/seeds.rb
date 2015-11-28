@@ -26,13 +26,13 @@ User.create!(firstName:  "Admin",
               password_confirmation: password,
               activated: true,
               activated_at: Time.zone.now)
-  if n < 9
-    Link.create!(title: "hello from #{firstName}",
-                 course: "CMPT#{n+1}",
-                 department: "CMPT",
-                 body: "Hello world!",
-                 user_id: "#{n+2}")
-  end
+  #if n < 9
+  #  Link.create!(title: "hello from #{firstName}",
+  #               course: "CMPT#{n+1}",
+  #               department: "CMPT",
+  #               body: "Hello world!",
+  #               user_id: "#{n+2}")
+  #end
 end
 # Following relationships
 users = User.all

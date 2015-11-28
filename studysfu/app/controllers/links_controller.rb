@@ -7,7 +7,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @links = Link.paginate(page: params[:page])
   end
 
   # GET /links/1
@@ -166,6 +166,7 @@ class LinksController < ApplicationController
     redirect_to :back
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
@@ -293,7 +294,7 @@ class LinksController < ApplicationController
             sections_fetch_error_count += 1
             retry
           else
-            flash[:danger] = "Could not load Course Details"
+            flash[:error] = "Could not load Course Details"
             return
           end
         end
@@ -328,7 +329,7 @@ class LinksController < ApplicationController
               section_fetch_error_count += 1
               retry
             else
-              flash[:danger] = "Could not load some Course Details"
+              flash[:error] = "Could not load some Course Details"
               next
             end
           end
