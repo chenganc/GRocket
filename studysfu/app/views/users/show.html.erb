@@ -48,6 +48,7 @@ $(document).ready(function(){
 
 <body>
 <div class = "jumbotron">
+
   <div class="wrapper">
       <div class="sidebar", data-color="orange", data-image="assets/img/sidebar-5.jpg">
         <div class="sidebar-wrapper">
@@ -61,7 +62,11 @@ $(document).ready(function(){
           <p>  <%= current_user.firstName %> </p>
           <p>  <%= current_user.lastName %> </p>
         </div>
-
+        <div class="posts">
+          <section class="statics">
+            <%= render 'shared/stats' %>
+          </section>
+        </div>
               <ul class="nav">
                   <li class="active">
                       <a href="#">
@@ -181,7 +186,69 @@ $(document).ready(function(){
 
           <div class="content">
               <div class="container-fluid">
-                <% if @user.links.any? %>
+                <%= render 'follow_form' if logged_in? %>
+                <br>
+
+                <% if (@user.links.any? || @user.feed.any?)%>
+                  <% @user.feed.reverse.each do |feed|%>
+                  <div class="row"><!-- ROW 1-->
+                      <div class="col-md-12"><!-- entry of links-->
+                          <div class="card ">
+
+                              <div class="content">
+                                <aside>
+                                      <%= link_to gravatar_for(feed.user, size: 50), feed.user %>
+                                      <strong class="h5"><strong><%= feed.course %> <br><%= feed.title %> </strong></strong>
+
+                                </aside>
+                                <hr>
+                                <span class="body"><%= feed.body %> </span>
+
+                                      <hr>
+
+                                      <div class="stats">
+
+                                        <tbody>
+                                              <tr>
+                                                <td class="td-actions text-left">
+
+                                                  <%= link_to like_link_path(feed), method: :put, class: "btn btn-default btn-sm" do %>
+                                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                                    Like
+                                                    <%= feed.get_upvotes.size %>
+                                                  <% end %>
+                                                  <%= link_to dislike_link_path(feed), method: :put, class: "btn btn-default btn-sm" do %>
+                                                    <span class="glyphicon glyphicon-chevron-down">
+                                                    Dislike
+                                                    <%= feed.get_downvotes.size %>
+                                                  <% end %>
+
+                                                  <button-comments class="btn-default btn btn-sm comments">Comments (<%= feed.comments.count %>)</button-comments>
+
+                                                  <p-reply class='hidden'>
+
+                                                      <%= simple_form_for [ feed, Comment.new]  do |f| %>
+                                                        <div class="field">
+                                                        <br>
+                                                          <%= f.text_area :body, class: "form-control" %>
+                                                        </div>
+                                                        <br>
+                                                        <%= f.submit "Add Comment", class: "btn btn-primary" %>
+                                                        <br>
+                                                        <br>
+                                                      <% end %>
+                                                  </p-reply>
+                                              </tr>
+                                        </tbody>
+                                          <i class="fa fa-history"></i> <%= time_ago_in_words(feed.created_at) %>
+                                      </div>
+
+                              </div>
+                          </div>
+                      </div> <!-- entry  of links-->
+                  </div>
+
+                  <% end %>
                   <% @user.links.reverse.each do |link| %>
                   <div class="row"><!-- ROW 1-->
                       <div class="col-md-12"><!-- entry of links-->
