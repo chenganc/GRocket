@@ -61,9 +61,12 @@ ActiveRecord::Schema.define(version: 20151125102317) do
     t.datetime "ends_at"
     t.boolean  "all_day"
     t.text     "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "exams", force: :cascade do |t|
     t.string   "building"

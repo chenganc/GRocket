@@ -332,6 +332,19 @@ body {
   margin-left: 2em;
   margin-right: 2em;
 }
+
+.eventtb {
+  text-align:center;
+  margin-left: 2em;
+  margin-right: 2em;
+  table, th, td {
+    text-align:center;
+    border: 1px solid black;
+    padding: 15px;
+
+  }
+}
+
 .inner-box {
   background-color: white;
 }

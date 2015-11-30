@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'calendar'    => 'calendars#show'
   get 'events'       => 'events#index'
 
+
 #  get 'resumelists'  =>  'resumelists#index'
   get 'resumelist'      => 'static_pages#resumelist'
   resources :calendar, :only => [:show]
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+
   resources :links do
     member do
       put "like", to:    "links#upvote"

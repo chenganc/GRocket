@@ -54,6 +54,14 @@ gem 'faker'
 gem 'carrierwave'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+# gems for forum feature
+gem 'acts_as_list'
+gem 'acts_as_state_machine'
+gem 'bluecloth'
+gem 'RedCloth'
+gem 'ruby-openid'
+gem 'rack-openid'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

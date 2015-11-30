@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.paginate(page: params[:page])
   end
 
   # GET /events/1
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.new(event_params)
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, :notice => 'Event was successfully created.' }
