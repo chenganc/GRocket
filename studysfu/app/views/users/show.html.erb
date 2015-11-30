@@ -54,13 +54,13 @@ $(document).ready(function(){
         <div class="sidebar-wrapper">
           <div class="posts">
             <br>
-            <%= link_to gravatar_for(current_user, size: 90), current_user %>
+            <%= link_to gravatar_for(@user, size: 90), @user %>
             <br>
             <br>
           </div>
         <div class="disname">
-          <p>  <%= current_user.firstName %> </p>
-          <p>  <%= current_user.lastName %> </p>
+          <p>  <%= @user.firstName %> </p>
+          <p>  <%= @user.lastName %> </p>
         </div>
         <div class="posts">
           <section class="statics">
@@ -189,7 +189,7 @@ $(document).ready(function(){
                 <%= render 'follow_form' if logged_in? %>
                 <br>
 
-                <% if (@user.links.any? && @user.feed.any?)%>
+                <% if (@user.links.any? || @user.feed.any?)%>
                   <% @user.feed.reverse.each do |feed|%>
                   <div class="row"><!-- ROW 1-->
                       <div class="col-md-12"><!-- entry of links-->
