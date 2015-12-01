@@ -1,3 +1,8 @@
+<%= render 'layouts/sidebar' %>
+    <div class="wrapper">
+    <div class="main-panel">
+      <%= render 'layouts/navbar' %>
+
 <div class="box">
   <div class="posts">
     <br>
@@ -31,7 +36,10 @@
         <b>Description:</b>
         <%= @event.description %>
       </p>
-      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <% if @event.user == current_user || current_user.admin?-%>
+        <%= link_to 'Edit', edit_event_path(@event) %>|
+        <%= link_to 'Destroy', @event, :confirm => 'Are you sure?', :method => :delete %>|
+      <% end %>
       <%= link_to 'Back', events_path %>
       <br>
       <br>

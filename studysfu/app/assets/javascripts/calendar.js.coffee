@@ -21,6 +21,28 @@ $(document).on 'ready page:load', ->
     eventResize: (event, dayDelta, minuteDelta, revertFunc) ->
       updateEvent(event);
 
+$(document).on 'ready page:load', ->
+  $('#minicalendar').fullCalendar
+    editable: true,
+    header:
+      center: 'title',
+    defaultView: 'agendaDay',
+    height: 200,
+    slotMinutes: 30,
+
+
+    events: '/events.json'
+
+    timeFormat: 'h:mm t{ - h:mm t} ',
+    dragOpacity: "0.5"
+
+    eventDrop: (event, dayDelta, minuteDelta, allDay, revertFunc) ->
+      updateEvent(event);
+
+    eventResize: (event, dayDelta, minuteDelta, revertFunc) ->
+      updateEvent(event);
+
+
 
 updateEvent = (event) ->
   $.update "/events/" + event.id,
