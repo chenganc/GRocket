@@ -92,6 +92,7 @@ GEM
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
     database_cleaner (1.5.1)
+    date_validation (0.0.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -309,6 +310,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   compass
   database_cleaner
+  date_validation (~> 0.0.1)
   devise
   email_spec
   factory_girl_rails
