@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20151123062234) do
   add_index "departments", ["name", "term_id"], name: "index_departments_on_name_and_term_id", unique: true
   add_index "departments", ["term_id"], name: "index_departments_on_term_id"
 
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "exams", force: :cascade do |t|
     t.string   "building"
     t.string   "room"
