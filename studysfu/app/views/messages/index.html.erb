@@ -1,0 +1,52 @@
+
+<div class = "box">
+<div class = "chats">
+  <br>
+  <br>
+  <div class = "cen">
+    <strong><h1>Messager</h1></strong>
+  </div>
+  <br>
+  <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+    <div class="field">
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <div>
+      <%= f.submit "Add Reply", class: "btn btn-default btn-sm" %>
+      <br>
+      <br>
+    </div>
+
+  <% end %>
+<div class="ui segment">
+  <% @messages.reverse.each do |message| %>
+    <% if message.body %>
+      <% user = User.find(message.user_id) %>
+      <div class="item2">
+        <div class="content">
+          <div class="dp2">
+            <%= link_to gravatar_for(user, size: 50), user %>
+          </div>
+          <div class="header2"><strong><%= user.firstName %></strong> <%= message.message_time %></div>
+          <div class="list">
+            <div class="item3">
+              <i class="right triangle icon"></i>
+              <%= message.body %>
+            </div>
+          </div>
+          <br>
+          <br>
+
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @over_ten %>
+     <%= link_to 'Show More Messages', '?m=all',class: "btn btn-default btn-block" %>
+  <% end %>
+</div>
+
+
+</div>
+</div>

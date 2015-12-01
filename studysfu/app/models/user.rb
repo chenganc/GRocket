@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :conversations, :foreign_key => :sender_id
   has_many :links
   has_many :events, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
@@ -23,7 +24,10 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-
+  # If an user is online
+  def online?
+    updated_at > 5.minutes.ago
+  end
   # Activates an account.
   def activate
     update_attribute(:activated,    true)

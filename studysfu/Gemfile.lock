@@ -118,6 +118,8 @@ GEM
     ffi (1.9.10)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
+    foreigner (1.7.4)
+      activerecord (>= 3.0.0)
     fullcalendar-rails (2.4.0.2)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -146,6 +148,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailboxer (0.13.0)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.2)
@@ -243,6 +249,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    semantic-ui-sass (2.1.6.0)
+      sass (>= 3.2)
     shoulda-matchers (3.0.1)
       activesupport (>= 4.0.0)
     simple_form (3.2.0)
@@ -312,6 +320,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   json
+  mailboxer
   momentjs-rails
   neat
   postmark-rails
@@ -326,6 +335,7 @@ DEPENDENCIES
   ruby-openid
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  semantic-ui-sass
   shoulda-matchers
   simple_form
   spring

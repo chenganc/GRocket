@@ -66,6 +66,9 @@ gem 'RedCloth'
 gem 'ruby-openid'
 gem 'rack-openid'
 
+# gen for mailbox
+gem 'mailboxer'
+gem 'semantic-ui-sass'
 # gem for auto detect timezone
 gem 'browser-timezone-rails'
 # Use ActiveModel has_secure_password

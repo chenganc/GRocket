@@ -1,0 +1,78 @@
+
+<div class = "box">
+<div class = "chats">
+<div class = "cen">
+  <br>
+  <br>
+  <br>
+<div class="ui segment">
+  <h3>Mailbox</h3>
+
+  <div class="ui list">
+    <div class="item">
+      <% @conversations.each do |conversation| %>
+        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+          <% end %>
+          <div class="dp">
+            <%= link_to gravatar_for(recipient, size: 50), recipient %>
+          </div>
+          <br>
+          <%= recipient.firstName %>
+          <br>
+          <%= link_to "View Messages", conversation_messages_path(conversation)%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="ui segment">
+  <h3>Online Users</h3>
+  <div class="ui list">
+    <% @users.each do |user| %>
+      <% if (user.id != current_user.id && user.online?)%>
+      <div class="item">
+        <div class="dp">
+          <%= link_to gravatar_for(user, size: 50), user %>
+        </div>
+        <br>
+        <%= user.firstName %>
+        <br>
+        <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+      </div>
+      <% end %>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+</div>
+</div>
