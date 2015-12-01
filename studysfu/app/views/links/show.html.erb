@@ -4,7 +4,7 @@
     <div class="main-panel">
       <%= render 'layouts/navbar' %>
 <div class="box">
-      <br>
+  <br>
   <div class="info">
     <%= flash[:info]%>
   </div>
@@ -12,7 +12,7 @@
     <%= flash[:error]%>
   </div>
   <div class="posts">
-    <div class="page-header">
+    
         <%= link_to gravatar_for(@link.user, size: 50), @link.user %>
       <h1><%= @link.title %><br> <p>Submitted by <%= @link.user.firstName %></p></h1>
       <div class="inner-box">
@@ -25,8 +25,8 @@
     </div>
 
 
-    <div class="btn-group pull-left">
-      <div class="btn-group">
+    <div class="btn-group pull-left posts">
+      <div class="btn-group pull-left">
         <% if "#{@link.department}" == "1" %>
           <button type="button" class="btn btn-default btn-sm"><%= "ACMA #{@link.course}" %></button>
         <% end %>
@@ -283,12 +283,13 @@
       <% if @link.attachment.url != nil -%>
         <%= link_to "View Attachment in New Tab", @link.attachment_url, :target => "_blank", class: "btn btn-default btn-sm"  %>
       <% end %>
+      </div>
     </div>
 
     <% if @link.user == current_user -%>
-    	<div class="btn-group pull-right">
-    		<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default" %>
-    		<%= link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+    	<div class="btn-group pull-right posts">
+    		<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default btn-sm" %>
+    		<%= link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
     	</div>
     <% end %>
     <br>
@@ -296,17 +297,18 @@
       <%= @link.comments.count %> Comments
     </h3>
 
-    <div id="comments">
+    <div id="comments" class="posts">
       <%= render :partial => @link.comments %>
     </div>
     <%= simple_form_for [@link, Comment.new]  do |f| %>
-      <div class="field">
+      <div class="field posts">
         <%= f.text_area :body, class: "form-control" %>
       </div>
       <br>
-      <%= f.submit "Add Comment", class: "btn btn-primary" %>
+      <%= f.submit "Add Comment", class: "btn btn-primary posts" %>
       <br>
       <br>
     <% end %>
     </div>
+</div>
 </div>
