@@ -21,12 +21,13 @@ Rails.application.routes.draw do
   get 'calendar'    => 'calendars#show'
   get 'events'       => 'events#index'
   get 'conversations'       => 'conversations#index'
-
-#  get 'resumelists'  =>  'resumelists#index'
+  #  get 'resumelists'  =>  'resumelists#index'
   get 'resumelist'      => 'static_pages#resumelist'
+
   resources :calendar
   resources :events
   resources :resumelists
+  resources :resumes
   resources :comments
   resources :users
   resources :account_activations, only: [:edit]

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :resumelists, dependent: :destroy
+  has_many :resumes, dependent: :destroy
   has_many :posts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email

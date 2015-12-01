@@ -163,6 +163,38 @@ ActiveRecord::Schema.define(version: 20151125106666) do
   add_index "resumelists", ["user_id", "created_at"], name: "index_resumelists_on_user_id_and_created_at"
   add_index "resumelists", ["user_id"], name: "index_resumelists_on_user_id"
 
+  create_table "resumes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.integer  "user_id"
+    t.text     "p1"
+    t.text     "p2"
+    t.text     "p3"
+    t.text     "p4"
+    t.text     "p5"
+    t.text     "p6"
+    t.text     "p7"
+    t.text     "p8"
+    t.text     "p9"
+    t.text     "p10"
+    t.text     "p11"
+    t.text     "p12"
+    t.text     "p13"
+    t.text     "p14"
+    t.text     "p15"
+    t.text     "p16"
+    t.text     "p17"
+    t.text     "p18"
+    t.text     "p19"
+    t.text     "p20"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "resumes", ["user_id", "created_at"], name: "index_resumes_on_user_id_and_created_at"
+  add_index "resumes", ["user_id"], name: "index_resumes_on_user_id"
+
   create_table "section_times", force: :cascade do |t|
     t.string   "building"
     t.string   "room"

@@ -51,9 +51,8 @@
                           </li>
                           <% end %>
                           <li><%= link_to "Mailbox", conversations_path, class: "item" %></li>
-                          <li><%= link_to "Calendar", calendar_path%></li>
-                          <li><%= link_to "Posts", links_path %></li>
-                          <li><%= link_to "New post", new_link_path %></li>
+                          <li><%= link_to "Upcoming Event", events_path%></li>
+                          <li><%= link_to "New Post", new_link_path %></li>
                         <% end %>
 
                           <% if logged_in? %>

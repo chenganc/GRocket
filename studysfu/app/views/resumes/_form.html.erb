@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="center ">
+      <%= form_for(@resume) do |f| %>
+        <% if @resume.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+            <% @resume.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+        <!--< %= options_from_collection_for_select(Resumelist.all, :id, :content) %>-->
+        <div class="form-group">
+          <%= f.label "Resume Name" %><br>
+          <%= f.text_field :p7, placeholder: "A descriptive name for your resume: ex. Delotitte Junior Consultant", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, placeholder: "Your name", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %><br>
+          <%= f.text_field :email, placeholder: "Your email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone %><br>
+          <%= f.telephone_field :phone, placeholder: "Your phone number", class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label "Objective" %><br>
+          <%= f.text_area :p8, cols: "80", rows: "10", placeholder: "Brief overview about yourself", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Heading One" %><br>
+          <%= f.text_field :p1, placeholder: "Heading One", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Heading One Points" %><br>
+          <%= f.text_area :p2, cols: "80", rows: "10", placeholder: "Points for heading one", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Heading Two" %><br>
+          <%= f.text_field :p3, placeholder: "Heading Two", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Heading Two Points" %><br>
+          <%= f.text_area :p4, cols: "80", rows: "10", placeholder: "Points for heading two", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Heading Three" %><br>
+          <%= f.text_field :p5, placeholder: "Heading Three", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Heading Three Points" %><br>
+          <%= f.text_area :p6, cols: "80", rows: "10", placeholder: "Points for heading three", class: "form-control" %>
+        </div>
+        
+        <!--<div class="form-group">-->
+        <!--< %= f.label :p1 %><br>-->
+        <!--< %= collection_select(:resume, :p1, Resumelist.all, :id, :content), placeholder: "Heading" %>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--< %= f.collection_select(:p2, Resumelist.all, :id, :content) %>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--< %= f.collection_select(:p3, Resumelist.all, :id, :content) %>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--< %= f.collection_select(:p4, Resumelist.all, :id, :content) %>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--< %= f.collection_select(:p5, Resumelist.all, :id, :content) %>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--< %= f.collection_select(:p6, Resumelist.all, :id, :content) %>-->
+        <!--</div>-->
+      
+      <br></br>
+        <div class="form-group">
+         <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+        </div>
+
+        <% end %>
+</div>

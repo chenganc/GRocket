@@ -1,0 +1,34 @@
+<%= render 'layouts/sidebar' %>
+    <div class="wrapper">
+    <div class="main-panel">
+      <%= render 'layouts/navbar' %>
+<div class="box">
+<div class="chats">
+
+  <br>
+  <div class="info">
+    <%= flash[:info]%>
+  </div>
+  <h1> My Resumes</h1>
+  <%= link_to 'Make new resume', new_resume_path(@resume), class: "btn btn-default" %>
+  <div class="resumes">
+    <% @resumes.each do |resume| %>
+      <% if current_user.id == resume.user_id %>
+      <br>
+      <h4> <%= link_to resume.p7, resume, :target => "_blank" %> | <%= link_to 'Edit', edit_resume_path(resume.id), class: "btn btn-default" %> </h4>
+      <br>
+      <% end %>
+
+     <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+</div>
+</div>
+</div>
+</div>
