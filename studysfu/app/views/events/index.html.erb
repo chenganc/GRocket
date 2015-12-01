@@ -1,3 +1,22 @@
+<% provide(:title, "Events") %>
+<%= render 'layouts/sidebar' %>
+    <div class="wrapper">
+    <div class="main-panel">
+      <%= render 'layouts/navbar' %>
+<div class="box">
+  <div class="posts">
+    <br>
+    <br>
+    <%= link_to "Create New Event", new_event_path, class: "btn btn-info btn-sm" %>
+    <%= link_to "Current Events", events_path, class: "btn btn-warning btn-sm" %>
+    <br>
+    <br>
+    <div id='calendar'></div>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
 <div class="box">
   <div class="posts">
     <br>
