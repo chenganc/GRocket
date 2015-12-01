@@ -18,7 +18,7 @@
         <% @events.reverse.each do |event| %>
           <tr>
             <td><%= link_to "#{event.title}", event_path(event) %></td>
-            <td><%= event.user.firstName %></td>
+            <td><%= link_to "#{event.user.firstName} #{event.user.lastName}", user_path(event.user) %></td>
             <td><%= event.starts_at %></td>
             <td><%= event.ends_at %></td>
             <% if event.all_day-%>

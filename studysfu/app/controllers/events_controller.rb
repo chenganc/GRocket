@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     #@events = Event.where(user_id:current_user.id)
-    @events = Event.all
+    @events = Event.where(user_id: [current_user.id,current_user.following_ids])
+    #@events = Event.all
     #@events = Event.paginate(page: params[:page])
   end
 

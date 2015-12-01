@@ -17,4 +17,8 @@
 //= require moment
 //= require fullcalendar
 //= require_tree .
+//= require jquery
+//= require jquery.cookie
+//= require jstz
+//= require browser_timezone_rails/set_time_zone
 //= require turbolinks

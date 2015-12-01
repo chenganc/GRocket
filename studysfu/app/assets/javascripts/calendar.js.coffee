@@ -9,9 +9,8 @@ $(document).on 'ready page:load', ->
     height: 500,
     slotMinutes: 30,
 
-    eventSources: [{
-      events: '/events.json'
-    }],
+
+    events: '/events.json'
 
     timeFormat: 'h:mm t{ - h:mm t} ',
     dragOpacity: "0.5"
