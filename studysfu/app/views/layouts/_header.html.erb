@@ -66,8 +66,6 @@
             </li>
             <% end %>
             <li><%= link_to "Mailbox", conversations_path, class: "item" %></li>
-            <li><%= link_to "Calendar", calendar_path%></li>
-            <li><%= link_to "Posts", links_path %></li>
             <li><%= link_to "New post", new_link_path %></li>
           <% end %>
 
@@ -89,7 +87,7 @@
               <li><%= link_to "Register", '../users/new', style:"padding-top:20%"%></li>
               <li><%= link_to "Log in", login_path, class:"btn btn-round btn-default" %></li>
             <% end %>
-
+          </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
