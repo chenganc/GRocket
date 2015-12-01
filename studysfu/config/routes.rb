@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post "comments/:id" => "comments#edit"
   get 'calendar'    => 'calendars#show'
   get 'events'       => 'events#index'
-
+  get 'conversations'       => 'conversations#index'
 
 #  get 'resumelists'  =>  'resumelists#index'
   get 'resumelist'      => 'static_pages#resumelist'

@@ -1,4 +1,7 @@
-
+<%= render 'layouts/sidebar' %>
+    <div class="wrapper">
+    <div class="main-panel">
+      <%= render 'layouts/navbar' %>
 <div class = "box">
 <div class = "chats">
 <div class = "cen">
@@ -20,7 +23,6 @@
           <div class="dp">
             <%= link_to gravatar_for(recipient, size: 50), recipient %>
           </div>
-          <br>
           <%= recipient.firstName %>
           <br>
           <%= link_to "View Messages", conversation_messages_path(conversation)%>
