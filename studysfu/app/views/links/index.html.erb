@@ -20,16 +20,265 @@
         <p class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.firstName %></p>
       </h2>
       <div class="btn-group">
-        <button type="button" class="btn btn-default btn-sm"><%= "#{link.department} #{link.course}" %></button>
+        <% if "#{link.department}" == "1" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ACMA #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "2" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ALS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "3" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "APMA #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "3" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ARAB #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "4" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ARCH #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "5" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ARCH #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "6" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ASC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "7" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "BISC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "8" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "BKP #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "9" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "BUEC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "10" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "BUS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "11" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "CHEM #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "12" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "CHIN #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "13" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "CMNS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "14" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "CMPT #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "15" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "COGS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "16" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "CRIM #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "17" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "DEVS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "18" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "DIAL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "19" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "DMED #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "20" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "EASC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "21" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ECO #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "22" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ECON #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "23" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "EDPR #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "24" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "EDUC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "25" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ENGL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "26" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ENSC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "27" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ENV #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "28" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "EVSC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "29" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FAL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "30" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FAN #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "31" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FEP #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "32" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FNLG #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "33" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FNST #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "34" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FPA #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "35" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "FREN #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "36" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "GEOG #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "37" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "GERM #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "38" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "GERO #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "39" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "GRAD #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "40" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "GRK #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "41" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "GSWS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "42" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "HIST #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "43" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "HS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "44" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "HISC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "45" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "HUM #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "46" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "IAT #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "47" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "IS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "48" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ITAL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "49" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "JAPN #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "50" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "LAS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "51" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "LBRL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "52" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "LBST #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "53" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "LING #{link.course}" %></button>
+        <% end %>        
+        <% if "#{link.department}" == "54" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "LS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "55" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MACM #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "56" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MASC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "57" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MATH #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "58" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MBB #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "59" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MCRT #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "60" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MSE #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "61" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "MSSC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "62" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "NUSC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "63" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "ONC #{link.course}" %></button>
+        <% end %>        
+        <% if "#{link.department}" == "64" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "PERS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "65" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "PHIL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "66" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "PHYS #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "67" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "PLCY #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "68" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "POL #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "69" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "PSYC #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "70" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "PUB #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "71" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "REM #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "72" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "SA #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "73" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "SAR #{link.course}" %></button>
+        <% end %>        
+        <% if "#{link.department}" == "74" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "SCD #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "75" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "SCI #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "76" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "SPAN #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "77" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "STAT #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "78" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "URB #{link.course}" %></button>
+        <% end %>
+        <% if "#{link.department}" == "79" %>
+          <button type="button" class="btn btn-default btn-sm"><%= "WL #{link.course}" %></button>
+        <% end %>
+
+
+
+
+
+
+
+
         <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-up"></span>
         Like
         <%= link.get_upvotes.size %>
+
         <% end %>
         <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-down">
         Dislike
         <%= link.get_downvotes.size %>
+
         <% end %>
         <%= link_to link, class: "btn btn-default btn-sm" do %>
         Comments (<%= link.comments.count %>)
