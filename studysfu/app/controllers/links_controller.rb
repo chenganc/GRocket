@@ -191,7 +191,7 @@ class LinksController < ApplicationController
     terms = year.terms
 
     if terms.count == 0 or (Time.now-(terms.order('updated_at').last.updated_at)) > 1.month
-      request_terms = JSON.parse(RestClient.get "#{SFU_CO_API}?#{year.number}")
+      request_terms = JSON.parse(RestClient.get "#{SFUAPI}?#{year.number}")
       request_terms.each do |t|
         term_obj = year.terms.find_by(name: t["text"])
         if !term_obj
@@ -213,7 +213,7 @@ class LinksController < ApplicationController
     departments = term.departments
 
     if departments.count == 0 or (Time.now-(departments.order('updated_at').last.updated_at)) > 1.month
-      request_departments = JSON.parse(RestClient.get "#{SFU_CO_API}?#{year.number}/#{term.name}")
+      request_departments = JSON.parse(RestClient.get "#{SFUAPI}?#{year.number}/#{term.name}")
       request_departments.each do |d|
         # department_obj = Department.find_by(name: d["text"], term_id: term.id)
         department_obj = term.departments.find_by(name: d["text"])
@@ -238,9 +238,9 @@ class LinksController < ApplicationController
 
     if courses.count == 0 or (Time.now-(courses.order('updated_at').last.updated_at)) > 2.weeks
       begin
-        request_courses = JSON.parse(RestClient.get "#{SFU_CO_API}?#{year.number}/#{term.name}/#{department.name}")
+        request_courses = JSON.parse(RestClient.get "#{SFUAPI}?#{year.number}/#{term.name}/#{department.name}")
       rescue => e
-        puts "#{SFU_CO_API}?#{year.number}/#{term.name}/#{department.name}"
+        puts "#{SFUAPI}?#{year.number}/#{term.name}/#{department.name}"
         puts e.response
         courses = []
         return
