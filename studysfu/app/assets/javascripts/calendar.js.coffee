@@ -1,4 +1,4 @@
-$(document).ready ->
+$(document).on 'ready page:load', ->
   $('#calendar').fullCalendar
     editable: true,
     header:

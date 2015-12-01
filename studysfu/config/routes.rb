@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
 #  get 'resumelists'  =>  'resumelists#index'
   get 'resumelist'      => 'static_pages#resumelist'
-  resources :calendar, :only => [:show]
+  resources :calendar
   resources :events
   resources :resumelists
   resources :comments

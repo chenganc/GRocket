@@ -20,7 +20,11 @@
 
       <p>
         <b>All day:</b>
-        <%= @event.all_day %>
+        <% if @event.all_day-%>
+          Yes
+        <% else %>
+          No
+        <% end %>
       </p>
 
       <p>

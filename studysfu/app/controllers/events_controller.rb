@@ -3,7 +3,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.paginate(page: params[:page])
+    #@events = Event.where(user_id:current_user.id)
+    @events = Event.all
+    #@events = Event.paginate(page: params[:page])
   end
 
   # GET /events/1
@@ -77,6 +79,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
   def event_params
-    params.require(:event).permit(:title, :description,:starts_at,:ends_at)
+    params.require(:event).permit(:title, :all_day, :description,:starts_at,:ends_at)
   end
 end
