@@ -1,0 +1,56 @@
+ <div id= "rocketbg" class="sidebar", data-color="grey", data-image="#">
+        <div class="sidebar-wrapper">
+          <div class="posts">
+            <br>
+            <%= link_to gravatar_for(current_user, size: 90), current_user %>
+            <br>
+            <br>
+          </div>
+        <div class="disname">
+          <p>  <%= current_user.firstName %> </p>
+          <p>  <%= current_user.lastName %> </p>
+        </div>
+
+              <ul class="nav">
+                  <li class="active">
+                      <a href="../show">
+                          <i class="pe-7s-portfolio"></i>
+                          <p>Dashboard</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <i class="pe-7s-user"></i>
+                          <p>User Profile</p>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="../links/">
+                          <i class="pe-7s-chat"></i>
+                          <p>Forum</p>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="../chatroom">
+                          <i class="pe-7s-browser"></i>
+                          <p>Chatroom</p>
+                      </a>
+                  </li>
+
+                   <li>
+                      <a href="../resumelists/">
+                          <i class="pe-7s-news-paper"></i>
+                          <p>Resume</p>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="notifications.html">
+                          <i class="pe-7s-bell"></i>
+                          <p>Notifications</p>
+                      </a>
+                  </li>
+              </ul>
+        </div>
+      </div>

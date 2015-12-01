@@ -1,11 +1,6 @@
+<body style="padding-top: 60px;">
+<%= render 'layouts/header' %>
 <% provide(:title, "Log in") %>
-<!--<style>
-body {
-    background-image:url(<%=asset_path "GRocket-Icon-grey-01.png"%>);
-    background-size: 50px 50px;
-    background-repeat: xy;
-}
-</style>-->
 <div class="center jumbotron">
   <div class="error">
     <%= flash[:error]%>
@@ -36,3 +31,4 @@ body {
     </div>
   </div>
 </div>
+</body>
